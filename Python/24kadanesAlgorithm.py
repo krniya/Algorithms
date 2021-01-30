@@ -11,4 +11,5 @@ def kadanesAlgorithm(array):
 # maxend   = 4
 # maxsofar = 5
 
-print(kadanesAlgorithm([1,-5,2,3,-3,2]))
+
+print(kadanesAlgorithm([1, 2, 3, -2, 5]))

@@ -19,8 +19,7 @@ def postOrdTravIterative(root):
             stack.append(root)
             root = root.left
         root = stack.pop()
-        if (root.right is not None and
-                peek(stack) == root.right):
+        if (root.right is not None and peek(stack) == root.right):
             stack.pop()
             stack.append(root)
             root = root.right

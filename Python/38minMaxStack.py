@@ -1,8 +1,3 @@
-# When heap data is in array form then
-# child1 = 2i + 1
-# child2 = 2i + 2
-# parents = floor((i/2)-1)
-# We can use these properties to solve problems efficiently
 class MinMaxStack:
     def __init__(self):
         self.minMaxStack = []

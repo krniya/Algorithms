@@ -1,7 +1,7 @@
 class TrieNode:
     def __init__(self) -> None:
         self.children = [None] * 26
-        self.endOfWorld = False
+        self.endOfWord = False
 
 
 class Trie:
@@ -16,8 +16,7 @@ class Trie:
 
     def insert(self, key):
         pCrawl = self.root
-        length = len(key)
-        for level in range(length):
+        for level in range(len(key)):
             index = self._charToIndex(key[level])
             if not pCrawl.children[index]:
                 pCrawl.children[index] = self.getNode()
@@ -26,8 +25,7 @@ class Trie:
 
     def search(self, key):
         pCrawl = self.root
-        length = len(key)
-        for level in range(length):
+        for level in range(len(key)):
             index = self._charToIndex(key[level])
             if not pCrawl.children[index]:
                 return False

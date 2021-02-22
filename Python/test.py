@@ -1,3 +1,11 @@
-n = 10
-for i in range(n//2 - 1, -1, -1):
-    print(i)
+def setBits(n):
+    a = int(bin(n).replace('0b', ''))
+    count = 0
+    while a > 0:
+        if a % 10 == 1:
+            count += 1
+        a //= 10
+    return count
+
+
+print(setBits(6))

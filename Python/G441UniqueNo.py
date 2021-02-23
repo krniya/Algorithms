@@ -1,19 +1,16 @@
-def singleNumber(A):
-    ans = 0
-    for i in range(0, 32):
-        count = 0
-        for a in A:
-            if ((a >> i) & 1):
-                count += 1
-        ans |= ((count % 3) << i)
-    return convert(ans)
+def singleNumber(nums):
+    sol = 0
+    for i in nums:
+        sol ^= i
+    sol &= -sol
+    res = [0, 0]
+    for i in nums:
+        if ((i & sol) == 0):
+            res[0] ^= i
+        else:
+            res[1] ^= i
+    return res
 
 
-def convert(x):
-    if x >= 2**31:
-        x -= 2**32
-    return x
-
-
-a = [3, 2, 7, 4, 1, 2, 4, 11]
+a = [2, 3, 1, 1, 3, 4, 2, 7]
 print(singleNumber(a))

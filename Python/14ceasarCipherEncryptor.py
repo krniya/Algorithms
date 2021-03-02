@@ -6,6 +6,7 @@ def encryptor(str, i):
         newLetter.append(getNewLetter(letter, newKey))
     return "".join(newLetter)
 
+
 def getNewLetter(letter, key):
     newLetterCode = ord(letter) + key
     return chr(newLetterCode) if newLetterCode <= 122 else chr(96 + newLetterCode % 122)
@@ -19,6 +20,7 @@ def encryptor2(str, i):
     for letter in str:
         newLetter.append(getNewLetter2(letter, newKey, alphabet))
     return "".join(newLetter)
+
 
 def getNewLetter2(letter, key, alphabet):
     newLetterCode = alphabet.index(letter) + key

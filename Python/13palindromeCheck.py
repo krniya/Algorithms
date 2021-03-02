@@ -6,6 +6,8 @@ def palindromeCheck(str):
     return str == reversedStr
 
 #O(n) | O(n)
+
+
 def palindromeCheck1(str):
     reversedChar = []
     for i in reversed(range(len(str))):
@@ -13,15 +15,19 @@ def palindromeCheck1(str):
     return str == "".join(reversedChar)
 
 # O(n) | O(n)
-def palindromeCheck2(str, i = 0):
+
+
+def palindromeCheck2(str, i=0):
     j = len(str) - 1 - i
     return True if i >= j else str[i] == str[j] and palindromeCheck2(str, i + 1)
 
 # O(n) | O(1)
+
+
 def palindromeCheck3(str):
     left = 0
     right = len(str) - 1
-    while left < right :
+    while left < right:
         if(str[left] != str[right]):
             return False
         left += 1

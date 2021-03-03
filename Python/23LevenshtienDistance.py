@@ -8,10 +8,13 @@ def levenshteinDistance(str1, str2):
             if str2[i-1] == str1[j-1]:
                 edit[i][j] = edit[i-1][j-1]
             else:
-                edit[i][j] = 1 + min(edit[i-1][j], edit[i-1][j-1], edit[i][j-1])
+                edit[i][j] = 1 + min(edit[i-1][j], edit[i-1]
+                                     [j-1], edit[i][j-1])
     return edit[-1][-1]
 
 # O(mn) | O(min(m,n))
+
+
 def levenshteinDistance1(str1, str2):
     small = str1 if len(str1) < len(str2) else str2
     big = str1 if len(str1) >= len(str2) else str2
@@ -29,8 +32,9 @@ def levenshteinDistance1(str1, str2):
             if big[i - 1] == small[j - 1]:
                 currentEdits[j] = previousEdits[j - 1]
             else:
-                currentEdits[j] = 1 + min(previousEdits[j - 1], previousEdits[j], currentEdits[j-1])
+                currentEdits[j] = 1 + min(previousEdits[j - 1],
+                                          previousEdits[j], currentEdits[j-1])
     return evenEdits[-1] if len(big) % 2 == 0 else oddEdits[-1]
 
 
-print(levenshteinDistance1(['a','b','c'], ['e','b','c','f']))
+print(levenshteinDistance1(['a', 'b', 'c'], ['e', 'b', 'c', 'f']))

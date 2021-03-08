@@ -1,3 +1,6 @@
+import itertools
+
+
 def countAndSay(n: int) -> str:
     s = '1'
     for _ in range(n - 1):

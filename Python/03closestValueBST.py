@@ -3,9 +3,9 @@ class Node:
         self.value = value
         self.right = None
         self.left = None
-    
 
-def insert(root,node):
+
+def insert(root, node):
     if root is None:
         root = node
     else:
@@ -19,7 +19,7 @@ def insert(root,node):
                 root.left = node
             else:
                 insert(root.left, node)
-    
+
 
 def inorder(root):
     if root:
@@ -48,6 +48,8 @@ def closestValueBSTHelper(tree, tar, closest):
 
 # Average O(log(n)) | O(1)
 # Worst   O(n)      | O(1)
+
+
 def closestValueBST1(tree, tar):
     return closestValueBSTHelper1(tree, tar, float("inf"))
 
@@ -66,13 +68,13 @@ def closestValueBSTHelper1(tree, tar, closest):
     return closest
 
 
-r = Node(50)
-insert(r, Node(30))
-insert(r, Node(20))
-insert(r, Node(40))
-insert(r, Node(70))
-insert(r, Node(60))
-insert(r, Node(80))
+# r = Node(50)
+# insert(r, Node(30))
+# insert(r, Node(20))
+# insert(r, Node(40))
+# insert(r, Node(70))
+# insert(r, Node(60))
+# insert(r, Node(80))
 
-inorder(r)
-print(closestValueBST1(r,32))
+# inorder(r)
+# print(closestValueBST1(r, 32))

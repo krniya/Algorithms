@@ -68,13 +68,13 @@ def closestValueBSTHelper1(tree, tar, closest):
     return closest
 
 
-# r = Node(50)
-# insert(r, Node(30))
-# insert(r, Node(20))
-# insert(r, Node(40))
-# insert(r, Node(70))
-# insert(r, Node(60))
-# insert(r, Node(80))
+r = Node(50)
+insert(r, Node(30))
+insert(r, Node(20))
+insert(r, Node(40))
+insert(r, Node(70))
+insert(r, Node(60))
+insert(r, Node(80))
 
-# inorder(r)
-# print(closestValueBST1(r, 32))
+inorder(r)
+print(closestValueBST1(r, 32))

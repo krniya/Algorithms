@@ -9,3 +9,4 @@ class Solution:
         sec = 0
         for i in arr:
             sec += sums[k - i]
+        return sums

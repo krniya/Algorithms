@@ -14,7 +14,7 @@ def leftViewUtil(result, node, level):
 def LeftView(root):
     '''
     :param root: root of given tree.
-    :return: print the left view of tree, dont print new line
+    :return: print the left view of tree, dont print new line.
     '''
     global max_level
     max_level = 0

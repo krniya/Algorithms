@@ -35,3 +35,38 @@ class LinkedList:
         self.size += 1
 
     def addAny(self, data, idx):
+        new = self.Node(data, None)
+        count = 0
+        nodeid = self.head
+        while count < idx:
+            nodeid = nodeid.next
+            count += 1
+        new.next = nodeid.next
+        nodeid.next = new
+        self.size += 1
+
+    def removeFirst(self):
+        if self.isEmpty():
+            print("LinkedList already Empty")
+        self.head.next = self.head.next.next
+        self.size -= 1
+
+    def removeLast(self):
+        if self.isEmpty():
+            print("LinkedList already Empty")
+        looper = self.head
+        while looper.next.next is not None:
+            looper = looper.next
+        looper.next = None
+        self.size -= 1
+
+    def removeAny(self, idx):
+        if self.isEmpty():
+            print("LinkedList already Empty")
+        count = 0
+        nodeid = self.head
+        while count < idx - 1:
+            nodeid = nodeid.next
+            count += 1
+        nodeid.next = nodeid.next.next
+        self.size -= 1

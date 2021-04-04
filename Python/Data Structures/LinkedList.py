@@ -8,7 +8,6 @@ class LinkedList:
 
     def __init__(self) -> None:
         self.head = None
-        # self.next = None
         self.size = 0
 
     def __len__(self):
@@ -48,7 +47,7 @@ class LinkedList:
     def removeFirst(self):
         if self.isEmpty():
             print("LinkedList already Empty")
-        self.head.next = self.head.next.next
+        self.head = self.head.next
         self.size -= 1
 
     def removeLast(self):

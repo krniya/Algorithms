@@ -15,3 +15,4 @@ class MinHeap:
         childOneIdx = currIdx * 2 + 1
         while childOneIdx <= endIdx:
             childTwoIdx = currIdx * 2 + 2 if currIdx * 2 + 2 < endIdx else -1
+            

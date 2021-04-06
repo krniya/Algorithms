@@ -1,3 +1,6 @@
+from typing import Any
+
+
 class MinHeap:
     def __init__(self, arr) -> None:
         self.heap = self.buildHeap(arr)
@@ -11,8 +14,39 @@ class MinHeap:
             self.shiftDown(currIdx, len(arr) - 1, arr)
         return arr
 
-    def shiftDown(Self, currIdx, endIdx, heap):
+    def shiftDown(self, currIdx, endIdx, heap):
         childOneIdx = currIdx * 2 + 1
         while childOneIdx <= endIdx:
             childTwoIdx = currIdx * 2 + 2 if currIdx * 2 + 2 < endIdx else -1
-            
+            if childTwoIdx != -1 and heap[childTwoIdx] < heap[childOneIdx]:
+                idxtoSwap = childTwoIdx
+            else:
+                idxtoSwap = childOneIdx
+            if heap[idxtoSwap] < heap[currIdx]:
+                self.swap(currIdx, idxtoSwap, heap)
+                currIdx = idxtoSwap
+                childOneIdx = currIdx * 2 + 1
+            else:
+                return
+
+    def shiftUp(self, currIdx, heap):
+        parentIdx = (currIdx - 1) // 2
+        while currIdx > 0 and heap[currIdx] < heap[parentIdx]:
+            self.swap(currIdx, parentIdx, heap)
+            currIdx = parentIdx
+            parentIdx = (currIdx - 1) // 2
+
+    def peek(self):
+        return self.heap[0]
+
+    def remove(self):
+        self.swap(0, len(self.heap), self.heap)
+        valueToRemove = self.heap.pop()
+        self.shiftDown(0, len(self.heap) - 1, self.heap)
+
+    def insert(self, value):
+        self.heap.append(value)
+        self.shiftUp(len(self.heap) - 1, self.heap)
+
+    def swap(Self, i, j, heap):
+        heap[i], heap[j] = heap[j], heap[i]

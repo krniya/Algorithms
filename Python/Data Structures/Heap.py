@@ -1,6 +1,3 @@
-from typing import Any
-
-
 class MinHeap:
     def __init__(self, arr) -> None:
         self.heap = self.buildHeap(arr)
@@ -43,6 +40,7 @@ class MinHeap:
         self.swap(0, len(self.heap), self.heap)
         valueToRemove = self.heap.pop()
         self.shiftDown(0, len(self.heap) - 1, self.heap)
+        return valueToRemove
 
     def insert(self, value):
         self.heap.append(value)
@@ -50,3 +48,8 @@ class MinHeap:
 
     def swap(Self, i, j, heap):
         heap[i], heap[j] = heap[j], heap[i]
+
+
+arr = [43, 21, 34, 64, 15, 26, 71, 18, 59]
+minh = MinHeap(arr)
+print(minh.heap)

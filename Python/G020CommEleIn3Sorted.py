@@ -15,3 +15,12 @@ def commonElements(A, B, C, n1, n2, n3):
         else:
             k += 1
     return res
+
+
+ar1 = [1, 5, 10, 20, 40, 80]
+ar2 = [6, 7, 20, 80, 100]
+ar3 = [3, 4, 15, 20, 30, 70, 80, 120]
+
+n1, n2, n3 = len(ar1), len(ar2), len(ar3)
+
+print(commonElements(ar1, ar2, ar3, n1, n2, n3))

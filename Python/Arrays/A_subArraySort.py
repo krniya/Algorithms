@@ -16,7 +16,8 @@ def subArraySort(arr):
     while maxOutofOrder <= arr[subarrRightIdx]:
         subarrRightIdx -= 1
     return [subarrLeftIdx, subarrRightIdx]
-        
+
+
 def isOutofBound(i, num, arr):
     if i == 0:
         return num > arr[i + 1]
@@ -24,4 +25,5 @@ def isOutofBound(i, num, arr):
         return num < arr[i - 1]
     return num > arr[i + 1] or num < arr[i - 1]
 
-print(subArraySort([1,2,3,5,8,9,10,6,7]))
+
+print(subArraySort([1, 2, 3, 5, 8, 9, 11, 6, 7]))

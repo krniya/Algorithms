@@ -1,0 +1,2 @@
+def firstDuplicateNo(arr):
+    pass

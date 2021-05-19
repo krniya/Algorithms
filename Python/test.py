@@ -1,0 +1,2 @@
+def partyCancel(arr):
+    pass

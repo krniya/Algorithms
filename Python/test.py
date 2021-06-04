@@ -6,6 +6,3 @@ def twoSum(num, target):
         else:
             return map[num[i]], i + 1
     return -1, -1
-
-
-print(twoSum([2, 5, 7, 1, 3, 9], 11))

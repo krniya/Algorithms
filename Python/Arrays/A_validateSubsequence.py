@@ -9,6 +9,4 @@ def validateSubsequence(arr, ssq):
     return subSeq == len(ssq)
 
 
-# a = [2,5,3,6,7,4,1]
-# b = [5,7,1]
 print(validateSubsequence([2, 5, 3, 6, 7, 4, 1], [5, 7, 1]))

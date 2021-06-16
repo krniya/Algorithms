@@ -33,4 +33,4 @@ def findMedianSortedArr(A, B):
             return (max_of_left + min_of_right) / 2.0
 
 
-print(findMedianSortedArr([1, 3, 8, 9, 15], [7, 11, 18, 19, 21, 25]))
+print(findMedianSortedArr([1, 3, 8, 9, 15, 17], [7, 11, 18, 19, 21, 25]))

@@ -10,6 +10,9 @@ def firstMissingPositive(nums: List[int]) -> int:
     for i in range(len(nums)):  # use the index as the hash to record the frequency of each number
         nums[nums[i] % n] += n
     for i in range(1, len(nums)):
-        if nums[i]/n == 0:
+        if nums[i]//n == 0:
             return i
     return n
+
+
+print(firstMissingPositive([9, 2, 4, 5]))

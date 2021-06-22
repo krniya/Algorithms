@@ -10,3 +10,6 @@ def helper(s, l, r):
         l -= 1
         r += 1
     return s[l+1:r]
+
+
+print(longestPallindrome('LADBDABDAS'))

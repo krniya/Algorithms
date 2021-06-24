@@ -9,4 +9,4 @@ def longestValidParensthesis(s: str) -> int:
     return max_len
 
 
-print(longestValidParensthesis(')(()())(())))()('))
+print(longestValidParensthesis(')(()())(())))()'))

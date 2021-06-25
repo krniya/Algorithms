@@ -13,4 +13,4 @@ def longestSubString(s: str) -> int:
     return max_length
 
 
-print(longestSubString('abcabcabc'))
+print(longestSubString('abcabca'))

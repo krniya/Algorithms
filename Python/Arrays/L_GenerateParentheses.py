@@ -7,4 +7,4 @@ def GenerateParentheses(n):
     return dp[n]
 
 
-print(GenerateParentheses(3))
+print(GenerateParentheses(5))

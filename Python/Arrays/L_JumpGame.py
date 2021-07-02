@@ -27,4 +27,4 @@ def jumpGame1(nums):
     return times_of_jump
 
 
-print(jumpGame1([2, 4, 1, 1, 4, 7, 1, 1, 3]))
+print(jumpGame1([2, 4, 1, 1, 4, 7, 1, 3]))

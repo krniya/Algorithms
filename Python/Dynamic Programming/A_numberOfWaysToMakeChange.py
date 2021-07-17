@@ -9,4 +9,4 @@ def numberOfWaysToMakeChange(n, denoms):
     return ways[n]
 
 
-print(numberOfWaysToMakeChange(10, [1, 2, 3]))
+print(numberOfWaysToMakeChange(10, [1, 2, 3, 4]))

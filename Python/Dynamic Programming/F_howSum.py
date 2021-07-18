@@ -32,4 +32,4 @@ def howSum(tar, arr, memo={}):
     return None
 
 
-print(howSum(300, [7, 6]))
+print(howSum(300, [7, 8]))

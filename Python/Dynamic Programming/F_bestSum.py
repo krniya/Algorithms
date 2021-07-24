@@ -38,4 +38,4 @@ def bestSum2(targetSum, numbers, memo={}):
     return soretest
 
 
-print(bestSum(7, [2, 3, 4, 7]))
+print(bestSum(7, [1, 3, 4, 7]))

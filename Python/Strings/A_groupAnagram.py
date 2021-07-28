@@ -21,6 +21,8 @@ def groupAnagram(words):
     return result
 
 # O(wnlog(n)) | O(wn)
+
+
 def groupAnagram1(words):
     anagrams = {}
     for word in words:
@@ -30,3 +32,6 @@ def groupAnagram1(words):
         else:
             anagrams[sortedWord] = [word]
     return list(anagrams.values())
+
+
+print(groupAnagram1(['eat', 'ate', 'tea', 'dog']))

@@ -7,3 +7,5 @@ def countAndSay(n: int) -> str:
         s = ''.join(str(len(list(group))) + digit
                     for digit, group in itertools.groupby(s))
     return s
+
+print(countAndSay('1232'))

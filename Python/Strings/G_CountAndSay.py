@@ -8,4 +8,5 @@ def countAndSay(n: int) -> str:
                     for digit, group in itertools.groupby(s))
     return s
 
-print(countAndSay('1232'))
+
+print(countAndSay(1232))

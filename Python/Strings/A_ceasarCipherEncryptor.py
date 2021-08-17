@@ -27,4 +27,4 @@ def getNewLetter2(letter, key, alphabet):
     return alphabet[newLetterCode] if newLetterCode <= 25 else alphabet[-1 + newLetterCode % 25]
 
 
-print(encryptor2('niya', 3))
+print(encryptor2('niya', 32))

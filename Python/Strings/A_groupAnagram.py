@@ -34,4 +34,4 @@ def groupAnagram1(words):
     return list(anagrams.values())
 
 
-print(groupAnagram1(['eat', 'ate', 'tea', 'dog', 'cat']))
+print(groupAnagram1(['eat', 'ate', 'tea', 'dog', 'cat', 'tom']))

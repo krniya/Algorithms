@@ -9,4 +9,4 @@ def countAndSay(n: int) -> str:
     return s
 
 
-print(countAndSay(1232))
+print(countAndSay(122))

@@ -5,7 +5,7 @@ def longestpalindromeSubstring(str):
         odd = getLongestPalindrome(str, i-1, i+1)
         even = getLongestPalindrome(str, i-1, i)
         longest = max(odd, even, key=lambda x: x[1] - x[0])
-        currentLongest = max(longest, currentLongest,
+        currentLongest = max(currentLongest, longest,
                              key=lambda x: x[1] - x[0])
     return str[currentLongest[0]:currentLongest[1]]
 
@@ -19,4 +19,4 @@ def getLongestPalindrome(str, left, right):
     return [left + 1, right]
 
 
-print(longestpalindromeSubstring('asdfaffgdsdfsfsfsdfsd'))
+print(longestpalindromeSubstring('aaaabbaa'))

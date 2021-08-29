@@ -17,4 +17,4 @@ def getLongest(s, l, r):
     return [l+1, r]
 
 
-print(longestPalin("aaaabbaa"))
+print(longestPalin("aaaabaa"))

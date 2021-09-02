@@ -43,3 +43,6 @@ def solveWordWrap(l, n, M):
                 c[j] = c[i-1] + lc[i][j]
                 p[j] = i
     printSolution(p, n)
+
+
+# Adding test cases

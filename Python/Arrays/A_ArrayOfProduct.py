@@ -17,3 +17,6 @@ def ArrayOfProduct(arr):
         prod[i] = leftprod[i] * rightprod[i]
 
     return prod
+
+
+print(ArrayOfProduct({1,2,3,4,5,6}))

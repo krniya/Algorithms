@@ -17,5 +17,5 @@ def fourSum(arr, tar):
                 allPairSum[currentSum].append([arr[k], arr[i]])
     return quarduplet
 
-print(fourSum([2,4,7,8,10], 24))
+print(fourSum([2,4,7,8,10], 22))
 

@@ -16,3 +16,6 @@ def threeNumSum(array, targetSum):
             elif currentSum > targetSum:
                 right -= 1
     return triplets
+
+
+print(threeNumSum([21,43,56,23,65,93, 69, 42], 120))

@@ -18,4 +18,4 @@ def threeNumSum(array, targetSum):
     return triplets
 
 
-print(threeNumSum([21,43,56,23,65,93, 69, 42], 120))
+print(threeNumSum([21,43,56,23, 69, 42], 120))

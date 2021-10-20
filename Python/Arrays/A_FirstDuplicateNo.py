@@ -6,4 +6,4 @@ def firstDuplicateNo(arr):
         arr[abs(value) - 1] *= -1
     return -1
 
-print(firstDuplicateNo([1,2,3,4,5,6,4,3]))
+print(firstDuplicateNo([1,2,7,7,3,4,5,6,4,3]))

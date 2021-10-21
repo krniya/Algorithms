@@ -31,7 +31,7 @@ def merge(arr1, arr2):
 
 
 a = [2, 6, 1, 7]
-b = [3, 9, 4, 8, 5]
+b = [3, 9, 10, 8, 5]
 merge(a, b)
 print(a, b)
 

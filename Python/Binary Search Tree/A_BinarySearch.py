@@ -29,6 +29,6 @@ def binarySearch1(arr, tar):
             l = middle + 1
     return -1
 
-x = [1,2,3,4,5,6,7,8,9]
+x = [1,2,3,4,5,6,7,8]
 print(binarySearch1(x,7))
 

@@ -1,21 +1,22 @@
-def minJumps(arr, n):
-    if len(arr) <= 1 : 
-        return 0 
-    if arr[0] == 0 :  
-        return -1 
-    maxReach = arr[0]; 
-    step = arr[0]; 
-    jump = 1; 
-    for i in range(1,len(arr)):
-        if  i == len(arr) - 1 : 
-                return jump
-        maxReach = max(maxReach, i+arr[i])
-        step-=1;
-        if  step == 0 : 
-            jump+=1
-            if i>=maxReach : 
-                return -1
-            step = maxReach - i 
-    return -1
+import sys
+def kthSmallest(arr, l, r, k):
+    if (k > 0 and k <= r - l + 1):
+        pos = partition(arr, l, r)
+        if (pos - l == k - 1):
+            return arr[pos]
+        if (pos - l > k - 1):
+            return kthSmallest(arr, l, pos - 1, k)
+        return kthSmallest(arr, pos + 1, r, k - pos + l - 1)
+    return sys.maxsize
 
-print(minJumps([2, 3, 1, 1, 2, 4, 2, 0, 1, 1], 10))
+def partition(arr, l, r):
+    x = arr[r]
+    i = l
+    for j in range(l, r):
+        if (arr[j] <= x):
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
+    arr[i], arr[r] = arr[r], arr[i]
+    return i
+
+print(kthSmallest([3,5,7,2,1,4,6],0,6,3))

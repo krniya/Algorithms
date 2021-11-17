@@ -19,4 +19,4 @@ def partition(arr, l, r):
     arr[i], arr[r] = arr[r], arr[i]
     return i
 
-print(kthSmallest([3,5,7,2,1,4,6],0,6,3))
+print(kthSmallest([3,5,7,2,1,4,6],0,6,4))

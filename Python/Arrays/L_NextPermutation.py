@@ -17,4 +17,5 @@ def nextPermutation(nums):
     return nums
 
 
-print(nextPermutation([1, 2, 3, 2, 1]))
+print(nextPermutation([1, 2, 3, 2]))
+

@@ -1,21 +1,15 @@
-# O(n^2) | O(n)
-def threeNumSum(array, targetSum):
-    array.sort()
-    triplets = []
-    for i in range(len(array) - 2):
-        left = i + 1
-        right = len(array) - 1
-        while left < right:
-            currentSum = array[i] + array[left] + array[right]
-            if currentSum == targetSum:
-                triplets.append([array[i], array[left], array[right]])
-                left += 1
-                right -= 1
-            elif currentSum < targetSum:
-                left += 1
-            elif currentSum > targetSum:
-                right -= 1
-    return triplets
+def trappingWater(height):
+    n = len(height)
+    maxLeft, maxRight = [0] * n, [0] * n    
+    for i in range(1, n):
+        maxLeft[i] = max(height[i-1], maxLeft[i-1])
+    for i in range(n-2, -1, -1):
+        maxRight[i] = max(height[i+1], maxRight[i+1])    
+    ans = 0
+    for i in range(n):
+        waterLevel = min(maxLeft[i], maxRight[i])
+        if waterLevel >= height[i]:
+            ans += waterLevel - height[i]
+    return ans
 
-
-print(threeNumSum([21,43,56,23, 69, 42], 120))
+print(trappingWater([3,0,0,2,0,4]))

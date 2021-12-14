@@ -40,4 +40,4 @@ def medianSortedArr(ar1, ar2):
 
 
 
-print(medianSortedArr([-5,-2,4,7,10], [-9,-3,2,6,9,13]))
+print(medianSortedArr([-5,-2,4,7,10,14], [-9,-3,2,6,9,13]))

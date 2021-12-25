@@ -2,17 +2,17 @@
 # Time O(n^m * m)
 # Space O(m)
 
-# def howSum(tar, arr):
-#     if tar == 0:
-#         return []
-#     if tar < 0:
-#         return None
-#     for num in arr:
-#         rem = tar - num
-#         remRes = howSum(rem, arr)
-#         if remRes is not None:
-#             return remRes + [num]
-#     return None
+def howSum(tar, arr):
+    if tar == 0:
+        return []
+    if tar < 0:
+        return None
+    for num in arr:
+        rem = tar - num
+        remRes = howSum(rem, arr)
+        if remRes is not None:
+            return remRes + [num]
+    return None
 
 
 def howSum(tar, arr, memo={}):

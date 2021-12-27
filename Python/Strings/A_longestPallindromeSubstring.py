@@ -19,4 +19,4 @@ def getLongestPalindrome(str, left, right):
     return [left + 1, right]
 
 
-print(longestpalindromeSubstring('aaaabbaa'))
+print(longestpalindromeSubstring('abcd'))

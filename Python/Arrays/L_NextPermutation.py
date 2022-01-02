@@ -16,6 +16,22 @@ def nextPermutation(nums):
         r -= 1
     return nums
 
+def nextPeru(n, arr):
+    ind = -1
+    for i in range(n-1,0,-1):
+        if arr[i]>arr[i-1]:
+            ind = i
+            break
+    if ind == -1:
+        return arr[::-1]
+    else:
+        prev = ind
+        for i in range(ind+1, n):
+            if arr[i]>arr[ind-1] and arr[i]<=arr[prev]:
+                prev = i           
+        arr[ind-1], arr[prev] = arr[prev], arr[ind-1]
+        arr[ind:] = arr[-1:ind-1:-1]
+    return arr
 
 print(nextPermutation([1, 5, 3, 4, 2]))
 

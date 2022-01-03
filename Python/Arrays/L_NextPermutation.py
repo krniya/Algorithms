@@ -3,8 +3,7 @@ def nextPermutation(nums):
     while i > 0 and nums[i-1] >= nums[i]:
         i -= 1
     if i == 0:
-        nums.reverse()
-        return
+        return nums.reverse()
     k = i - 1
     while nums[j] <= nums[k]:
         j -= 1
@@ -33,5 +32,5 @@ def nextPeru(n, arr):
         arr[ind:] = arr[-1:ind-1:-1]
     return arr
 
-print(nextPermutation([1, 5, 3, 4, 2]))
+print(nextPermutation([1, 2, 4, 3, 5]))
 

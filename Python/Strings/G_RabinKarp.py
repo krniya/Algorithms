@@ -23,3 +23,4 @@ def Rabin_Karp_Matcher(text, pattern, d, q):
             t = (t+q)%q # make sure that t >= 0
     return result
 
+print(Rabin_Karp_Matcher("khiysagus","iys", 10, 10))

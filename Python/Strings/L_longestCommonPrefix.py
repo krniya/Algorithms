@@ -8,4 +8,4 @@ def longestCommonPrefix(m):
     return s1
 
 
-print(longestCommonPrefix(["apple", "appy", "apam"]))
+print(longestCommonPrefix(["apples", "apy", "aaam"]))

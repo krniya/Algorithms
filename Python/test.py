@@ -1,12 +1,16 @@
-def secFrequent(arr):
-        # code here
-    dic = {}
-    for word in arr:
-        if word not in dic:
-            dic[word] = 1
-        else:
-            dic[word] += 1
-    dic = sorted(dic.items(), key= lambda x:x[1])
-    return dic[-2][0]
+def longestCommonSequence(x,y,s1,s2):
+    n = x
+    m = y
+    dp = [[0 for j in range(m+1)] for i in range(n+1)]
+    for i in range(n-1,-1,-1):
+        for j in range(m-1,-1,-1):
+            if s1[i] == s2[j]:
+                ans = 1 + dp[i+1][j+1]
+            else:
+                a1 = dp[i+1][j]
+                a2 = dp[i][j+1]
+                ans = max(a1,a2)
+            dp[i][j] = ans
+    return dp[0][0]
 
-print(secFrequent(['aaa', 'bbb', 'ccc', 'bbb', 'aaa', 'aaa']))
+print(longestCommonSequence(6,6,"ABCDGH", "AEDFHR"))

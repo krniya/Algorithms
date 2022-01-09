@@ -39,3 +39,8 @@ def getUnvisitedNeighbour(i,j,matrix,visited):
     if j<len(matrix[0]) - 1 and not visited[i][j+1]:
         unvisitedNeighbour.append([i,j+1])
     return unvisitedNeighbour
+
+print(riverSize([[1,0,1,1],
+                 [1,0,0,1],
+                 [0,1,1,0],
+                 [1,0,0,1]]))

@@ -1,11 +1,25 @@
-def findTheWinner(n, k):
-    arr = [x for x in range(1, n+1)]
-    i = 0
-    while len(arr) != 1:
-        i = i + k - 1
-        while i >= len(arr):
-            i -= len(arr)
-        arr.pop(i)
-    return arr[0]
+import heapq
+import collections
 
-print(findTheWinner(6, 5))
+def leastInterval(tasks, n):
+    curr_time, h = 0, []
+    for v in collections.Counter(tasks).values():
+        heapq.heappush(h, -1*v)
+    while h:
+        temp = []
+        for _ in range(n+1):
+            curr_time += 1
+            if h:
+                x = heapq.heappop(h)
+                if x != -1:
+                    # if current element does not used out this time, so there could be idles
+                    # and it cannot be used again in this n+1 space, so removed to temp and add back later
+                    # we can add all left idles if no h but have temp, to improve time complexity.
+                    temp.append(x+1)
+            if not h and not temp:#not temp, add idle
+                break
+        for item in temp:
+            heapq.heappush(h, item)
+    return curr_time
+
+print(leastInterval(["A","A","A","A","A","A","B","C","D","E","F","G"], 2))

@@ -27,6 +27,3 @@ def leastInterval(tasks, n):
     return max(ans, len(tasks))
 
 print(leastInterval(["A","A","A","A","A","A","B","C","D","E","F","G"], 2))
-
-ast = ["A","A","A","A","A","A","B","C","D","E","F","G"]
-print(ast.pop())

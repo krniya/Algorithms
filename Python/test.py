@@ -7,4 +7,4 @@ def addSpace(s, spaces):
     tmp+=s[i:]
     return tmp
 
-print(addSpace("LeetcodeHelpsMeLearn", [8,13,15]))
+print(addSpace("LeetcodeHelpsMeLearn", [8,13,15])) 

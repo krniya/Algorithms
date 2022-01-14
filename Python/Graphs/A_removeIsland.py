@@ -1,3 +1,5 @@
+# O(wh) | O(wh)
+
 def removeIsland(matrix):
     onesConnectToBorder = [[False for col in matrix[0]] for row in matrix]
     for row in range(len(matrix)):
@@ -26,6 +28,57 @@ def findOnesConnectedToBorder(matrix, startRow, startCol, onesConnectToBorder):
         if alreadyVisited:
             continue
         onesConnectToBorder[currentRow][currentCol] = True
+        neighbours = getNeighbour(matrix, currentRow, currentCol)
+        for neighbour in neighbours:
+            row, col = neighbour
+            if matrix[row][col] != 1:
+                continue
+            stack.append(neighbour)
+
+def getNeighbour(matrix, row, col):
+    neighbours = []
+    numRows = len(matrix)
+    numCols = len(matrix[row])
+    if row - 1 >= 0:
+        neighbours.append((row - 1, col))
+    if row + 1 < numRows:
+        neighbours.append((row + 1, col))
+    if col - 1 >= 0:
+        neighbours.append((row, col - 1))
+    if col + 1 < numCols:
+        neighbours.append((row, col + 1))
+    return neighbours
+
+
+######################################################################################################
+# O(wh) | O(wh)
+
+def removeIsland1(matrix):
+    for row in range(len(matrix)):
+        for col in range(len(matrix[row])):
+            rowInBorder = row == 0 or row == len(matrix) - 1
+            colInBorder = col == 0 or row == len(matrix[row]) - 1
+            isBorder = rowInBorder or colInBorder
+            if not isBorder:
+                continue
+            if matrix[row][col] != 1:
+                continue
+            changeOnesConnectedToBorderToTwos(matrix, row, col)
+    for row in range(len(matrix)):
+        for col in range(len(matrix[row])):  
+            color = matrix[row][col]
+            if color == 1:
+                matrix[row][col] = 0
+            elif color == 2:
+                matrix[row][col] = 1
+    return matrix
+
+def changeOnesConnectedToBorderToTwos(matrix, startRow, startCol):
+    stack = [(startRow, startCol)]
+    while len(stack) > 0:
+        currentPostion = stack.pop()
+        currentRow, currentCol = currentPostion
+        matrix[currentRow][currentCol] = 2
         neighbours = getNeighbour(matrix, currentRow, currentCol)
         for neighbour in neighbours:
             row, col = neighbour

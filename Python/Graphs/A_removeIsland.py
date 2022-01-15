@@ -99,3 +99,6 @@ def getNeighbour(matrix, row, col):
     if col + 1 < numCols:
         neighbours.append((row, col + 1))
     return neighbours
+
+
+print(removeIsland([[0,0,0,1,0,0],[0,0,0,0,0,1],[0,1,1,0,0,0],[0,0,0,0,1,0],[1,0,0,1,0,1]]))

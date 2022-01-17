@@ -1,10 +1,7 @@
-def addSpace(s, spaces):    
-    tmp = ''
-    i = 0
-    for j in spaces:
-        tmp+=s[i:j]+' '
-        i = j
-    tmp+=s[i:]
-    return tmp
+def reorganizeString(S):
+    a = sorted(sorted(S), key=S.count)
+    h = len(a) // 2
+    a[1::2], a[::2] = a[:h], a[h:]
+    return ''.join(a) * (a[-1:] != a[-2:-1])
 
-print(addSpace("LeetcodeHelpsMeLearn", [8,13,15])) 
+print(reorganizeString("aaab"))

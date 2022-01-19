@@ -1,7 +1,5 @@
-def reorganizeString(S):
-    a = sorted(sorted(S), key=S.count)
-    h = len(a) // 2
-    a[1::2], a[::2] = a[:h], a[h:]
-    return ''.join(a) * (a[-1:] != a[-2:-1])
+def conversion(a,b,n):
+    return int(str(a), n) + int(str(b),n)
 
-print(reorganizeString("aaab"))
+
+print(conversion(1011,1011,2))

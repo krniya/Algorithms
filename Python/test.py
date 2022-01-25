@@ -1,12 +1,22 @@
-def findmin(nums):
-    left, right = 0, len(nums)-1
-    while left < right:
-        mid = (left + right) // 2
-        if nums[mid] > nums[right]:
-            left = mid + 1
-        else:
-            right = mid
-    return nums[left]
+def stair(n):
+    if n==0:
+        return 0
+    if n==1:
+        return 1
+    if n==2:
+        return 2
+    return stair(n - 1) + stair(n-2)
 
+def stair(n, memo={}):
+    if n in memo:
+        return memo[n]
+    if n==0:
+        return 0
+    if n==1:
+        return 1
+    if n==2:
+        return 2
+    memo[n] =stair(n - 1) + stair(n-2)
+    return memo[n]
 
-print(findmin([4,5,6,7,0,1,2]))
+print(stair(3))

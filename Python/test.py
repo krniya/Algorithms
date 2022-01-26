@@ -1,22 +1,21 @@
-def stair(n):
-    if n==0:
-        return 0
-    if n==1:
-        return 1
-    if n==2:
-        return 2
-    return stair(n - 1) + stair(n-2)
-
-def stair(n, memo={}):
-    if n in memo:
-        return memo[n]
-    if n==0:
-        return 0
-    if n==1:
-        return 1
-    if n==2:
-        return 2
-    memo[n] =stair(n - 1) + stair(n-2)
-    return memo[n]
-
-print(stair(3))
+def longestIncSubSeq(nums):
+    def binarySearch(sub, val):
+        lo, hi = 0, len(sub)-1
+        while(lo <= hi):
+            mid = lo + (hi - lo)//2
+            if sub[mid] < val:
+                lo = mid + 1
+            elif val < sub[mid]:
+                hi = mid - 1
+            else:
+                return mid
+        return lo
+        
+    sub = []
+    for val in nums:
+        pos = binarySearch(sub, val)
+        if pos == len(sub):
+            sub.append(val)
+        else:
+            sub[pos] = val
+    return len(sub)

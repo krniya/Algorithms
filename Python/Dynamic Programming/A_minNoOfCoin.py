@@ -9,4 +9,4 @@ def minNoOfCoin(n, denoms):
     return noOfCoin[n] if noOfCoin[n] != float("inf") else -1
 
 
-print(minNoOfCoin(100,[1,2,4]))
+print(minNoOfCoin(11,[1,2,5]))

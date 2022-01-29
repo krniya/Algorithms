@@ -26,5 +26,5 @@ def maxSubsetSumNoAdjecent1(arr):
     return second
 
 
-arr = [4, 5, 3, 54, 32, 34, 21, 12, 15]
+arr = [2,7,9,3,1]
 print(maxSubsetSumNoAdjecent1(arr))

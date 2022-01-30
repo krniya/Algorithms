@@ -1,17 +1,22 @@
-def houseRobberII(nums):
-    def rob(nums, a, j):
-        first = nums[a]
-        second = max(nums[a], nums[a+1])
-        for i in range(a + 2, j):
-            curr = max(second, first + nums[i])
-            first = second
-            second = curr
-        return second
-    if len(nums) < 3:
-        return max(nums)
-    else:
-        left = rob(nums, 1, len(nums))
-        right = rob(nums, 0, len(nums) - 1)
-        return max( left, right)
+from functools import lru_cache
 
-print(houseRobberII([1,2,3,4,5,6]))
+def numDecodings(s:str) -> int:
+    if len(s) == 0 or s is None:
+        return 0
+    def dfs(string):
+        if len(string)>0:
+            if string[0] == '0':
+                return 0
+        if string == "" or len(string) == 1:
+            return 1
+        if int(string[0:2]) <= 26:
+            first = dfs(string[1:])
+            second = dfs(string[2:])
+            return first+second
+        else:
+            return dfs(string[1:])
+
+    result_sum = dfs(s)
+    return result_sum
+
+print(numDecodings("1121"))

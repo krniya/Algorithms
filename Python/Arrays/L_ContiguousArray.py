@@ -1,4 +1,4 @@
-def contiguousArray(arr):
+def contiguousArray(nums):
     count = 0
     max_length=0
     table = {0: 0}

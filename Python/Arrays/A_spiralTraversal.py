@@ -42,4 +42,4 @@ def spiralFill(arr, startRow, endRow, startCol, endCol, result):
 
 
 print(spiralTraversal(
-    [[6, 6, 2, 28, 2], [12, 26, 3, 28, 7], [22, 25, 3, 5, 23]]))
+    [[1,2,3,4],[5,6,7,8],[9,10,11,12]]))

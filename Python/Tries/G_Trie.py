@@ -38,11 +38,11 @@ keys = ["the", "a", "there", "anaswe", "any",
 output = ["Not present in trie",
           "Present in trie"]
 
-t = Trie()
-for key in keys:
-    t.insert(key)
+# t = Trie()
+# for key in keys:
+#     t.insert(key)
 
-print("{} ---- {}".format("the", output[t.search("the")]))
-print("{} ---- {}".format("these", output[t.search("these")]))
-print("{} ---- {}".format("their", output[t.search("their")]))
-print("{} ---- {}".format("thaw", output[t.search("thaw")]))
+# print("{} ---- {}".format("the", output[t.search("the")]))
+# print("{} ---- {}".format("these", output[t.search("these")]))
+# print("{} ---- {}".format("their", output[t.search("their")]))
+# print("{} ---- {}".format("thaw", output[t.search("thaw")]))

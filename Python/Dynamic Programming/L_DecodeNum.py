@@ -1,4 +1,4 @@
-def numDecodings(self, s: str) -> int:
+def numDecodings(s):
     dp = { len(s): 1}
     def dfs(i):
         if i in dp:

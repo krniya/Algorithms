@@ -33,5 +33,15 @@ def groupAnagram1(words):
             anagrams[sortedWord] = [word]
     return list(anagrams.values())
 
+# O( m * n)
+def groupAnagram1(strs):
+    res = defaultdict(list)
+    for w in strs:
+        count = [0] * 26
+        for c in w:
+            count[ord(c) - ord("a")] += 1
+         res[tuple(count)].append(w)
+    return res.values()
+
 
 print(groupAnagram1(['eat', 'ate', 'tea', 'dog', 'cat', 'tom']))

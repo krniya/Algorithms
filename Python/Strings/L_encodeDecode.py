@@ -1,5 +1,3 @@
-
-
 def encode(strs):
     res = ""
     for s in strs:

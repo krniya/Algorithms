@@ -62,6 +62,6 @@ class MinHeap:
         heap[i], heap[j] = heap[j], heap[i]
 
 
-arr = [43, 21, 34, 64, 15, 26, 71, 18, 59]
+arr = [43, 21, 34, 64, 15, 26, 71]
 minh = MinHeap(arr)
 print(minh.heap)

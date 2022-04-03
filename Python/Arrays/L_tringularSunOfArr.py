@@ -25,3 +25,10 @@ def triangularSum(nums):
             div //= 5
             exp5 -= 1
         mck = mck * inv[div % 10] % 10
+
+def triangularSum1(nums):
+    for j in range(len(nums), 0, -1):
+        for i in range(1, j):
+            nums[i - 1] += nums[i]
+            nums[i - 1] %= 10
+    return nums[0]

@@ -1,25 +1,23 @@
 def findWinners(matches):    
-    winner = []
-    looser = [] 
-    allwin = []
-    oneloss =set()
-    losCnt = {}
-    for match in matches:
-        winner.append(match[0])
-        looser.append(match[1])
-    allwin = list(set(winner) - set(looser))   
-    for loss in looser:
-        if loss in losCnt:
-            losCnt[loss] += 1
-        else:
-            losCnt[loss] = 1
-    for win in winner:
-        if win in losCnt and losCnt[win] == 1:
-            oneloss.add(win)
-    for win in looser:
-        if win in losCnt and losCnt[win] == 1:
-            oneloss.add(win)
-    return [allwin,list(oneloss)]
+    lost = {}
+    people = set()
+    for i, j in matches:
+        people.add(i)
+        people.add(j)
+    for i in people:
+        lost[i] = 0
+    for i, j in matches:
+        lost[j] += 1
+    zero = []
+    one = []
+    for i in people:
+        if lost[i] == 0:
+            zero.append(i)
+        elif lost[i] == 1:
+            one.append(i)
+    zero.sort()
+    one.sort()
+    return [zero, one]
 
 
 print(findWinners([[1,3],[2,3],[3,6],[5,6],[5,7],[4,5],[4,8],[4,9],[10,4],[10,9]]))

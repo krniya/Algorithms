@@ -1,14 +1,25 @@
-def numberOfWays(s):
-    ways = one = zero = zero_one = one_zero = 0
-    for c in s:
-        if c == '0':
-            zero += 1
-            one_zero += one
-            ways += zero_one
+def findWinners(matches):    
+    winner = []
+    looser = [] 
+    allwin = []
+    oneloss =set()
+    losCnt = {}
+    for match in matches:
+        winner.append(match[0])
+        looser.append(match[1])
+    allwin = list(set(winner) - set(looser))   
+    for loss in looser:
+        if loss in losCnt:
+            losCnt[loss] += 1
         else:
-            one += 1    
-            zero_one += zero 
-            ways += one_zero
-    return ways
+            losCnt[loss] = 1
+    for win in winner:
+        if win in losCnt and losCnt[win] == 1:
+            oneloss.add(win)
+    for win in looser:
+        if win in losCnt and losCnt[win] == 1:
+            oneloss.add(win)
+    return [allwin,list(oneloss)]
 
-print(numberOfWays("001101"))
+
+print(findWinners([[1,3],[2,3],[3,6],[5,6],[5,7],[4,5],[4,8],[4,9],[10,4],[10,9]]))

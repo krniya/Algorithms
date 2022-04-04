@@ -1,4 +1,4 @@
-def findWinners(matches):    
+def findWinners(matches):
     lost = {}
     people = set()
     for i, j in matches:

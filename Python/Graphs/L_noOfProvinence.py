@@ -11,3 +11,5 @@ def findCircleNum(isConnected):
                     toSee = [j for j,v in enumerate(isConnected[cur]) if v and j not in seen] + toSee
             res += 1
     return res
+
+print(findCircleNum([[1,1,0],[1,1,0],[0,0,1]]))

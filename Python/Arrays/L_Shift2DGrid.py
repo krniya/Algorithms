@@ -1,5 +1,5 @@
 class Solution:
-    def shiftGrid(self, grid: List[List[int]], k: int) -> List[List[int]]:
+    def shiftGrid(self, grid, k: int):
         M, N = len(grid), len(grid[0])
         def posToVal(r,c):
             return r * N + c

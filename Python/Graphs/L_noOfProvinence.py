@@ -1,15 +1,17 @@
 def findCircleNum(isConnected):
-    seen = set([])
-    res = 0
-    for i in range(len(isConnected)):
-        if i not in seen:
-            toSee = [i]
-            while len(toSee):
-                cur = toSee.pop()
-                if cur not in seen:
-                    seen.add(cur)
-                    toSee = [j for j,v in enumerate(isConnected[cur]) if v and j not in seen] + toSee
-            res += 1
-    return res
+        n = len(isConnected)
+        seen = set()
+        def dfs(node):
+            for nei, adj in enumerate(isConnected[node]):
+                if adj and nei not in seen:
+                    seen.add(nei)
+                    dfs(nei)
+    
+        ans = 0
+        for i in range(n):
+            if i not in seen:
+                dfs(i)
+                ans += 1
+        return ans
 
 print(findCircleNum([[1,1,0],[1,1,0],[0,0,1]]))

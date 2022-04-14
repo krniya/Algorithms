@@ -17,6 +17,6 @@ def largestInterger(num):
     return res
 
 
-print(largestInterger(1234))
+
 
             

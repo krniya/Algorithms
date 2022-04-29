@@ -1,15 +1,15 @@
-def isPerfectSquare( num: int) -> bool:
-        if num == 1:
-            return 1
-        l, r = 0, num//2
-        while l<=r:
-            m = (l+r) // 2
-            if m*m == num:
-                return True
-            elif m*m > num:
-                r = m-1
-            else:
-                l = m+1
-        return False
+def searchRange(nums, target):
+        def bsearch(a,t,d):
+            i,j=0,len(a)-1
+            while i<=j:
+                m=(i+j)//2
+                if a[m] < t:
+                    i = m+1
+                else:
+                    j=m-1
+            return i if d=="l" else j
+        l = bsearch(nums, target, "l")
+        r = bsearch(nums, target, "r")
+        return [l,r] if l<=r else [-1,-1]
 
-print(isPerfectSquare(4))
+print(searchRange([5,7,7,8,8,10], 8))

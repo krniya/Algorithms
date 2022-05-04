@@ -6,8 +6,6 @@ def maxDistance(nums1, nums2) -> int:
                 md = max(md, j-i)
                 j+=1
             else:
-                if nums1[i] > nums2[j] and i == j:
-                    j+=1
-                else:
-                    i+=1
+                j+=1
+                i+=1
         return md

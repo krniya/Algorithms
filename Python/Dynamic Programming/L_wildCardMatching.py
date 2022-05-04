@@ -1,4 +1,4 @@
-def isMatch(s: str, p: str) -> bool:
+def isMatch1(s: str, p: str) -> bool:
         dp = [[False for _ in range(len(p)+1)] for i in range(len(s)+1)]
         dp[0][0] = True
         for j in range(1, len(p)+1):
@@ -29,3 +29,5 @@ def isMatch(s: str, p: str) -> bool:
             dp = new_dp
 
         return dp[-1]
+
+print(isMatch("abcde","a*d?"))

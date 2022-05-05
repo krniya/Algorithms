@@ -1,2 +1,3 @@
-a = 5
-print(int(a**0.5))
+a = [1,2,3]
+print(a[1:])
+print(a[:0])

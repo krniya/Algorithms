@@ -10,3 +10,5 @@ def find132pattern(nums) -> bool:
             stack.append([n,curMin])
             curMin = min(curMin, n)
         return False
+
+print(find132pattern([3,1,4,2]))

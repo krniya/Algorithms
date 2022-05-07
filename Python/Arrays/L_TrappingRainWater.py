@@ -13,3 +13,21 @@ def trap(height) -> int:
             if waterLevel >= height[i]:
                 ans += waterLevel - height[i]
         return ans
+
+def trap1(height) -> int:
+        if len(height) <= 2:
+            return 0
+        l,r = 0, len(height) - 1
+        maxL, maxR = height[l], height[r]
+        res = 0
+        while l<r:
+            if maxL < maxR:
+                l += 1
+                maxL = max(maxL, height[l])
+                res += maxL - height[l]
+            else:
+                r -= 1
+                maxR = max(maxR, height[r])
+                res += maxR - height[r]
+        return res
+

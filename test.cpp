@@ -1,11 +1,35 @@
-class solution { public: int minimumAverageDifference(vector int>& nums) {
-if (nums.Size ==1 return nums[ed int n=nums.size(); long long sum=e; for(auto u:nums)
-Sum+=u;
-vector int> v(n); long long k=0;
-for(int i=0;i<n;i++) {
-k+=nums[i]; long long rt=sum-k; long long lt=k/(i+1); long long rta; if((n-1-i)==0)
-rtare; else rta=rt/(n-1-1);
-v[i]=abs(lt-rta);
-int mi-INT MAX,id=INT MAX; for(int i=0;i<n;i++){ i (v[i]cmi){
-mi=v[i]; id=i;
-return id;
+int add(char ch){
+    if(ch == '(') return 1;
+    else return -1;
+}
+
+class Solution {
+public:
+    bool hasValidPath(vector<vector<char>>& grid) {
+        
+        int n = grid.size(), m = grid[0].size();
+        if(grid[0][0] == ')') return false;
+        int mtk[n+1][m+1][n+m+2];
+        for(int i=0;i<=n;i++) for(int j=0;j<=m;j++) for(int k=0;k<=n+m+1;k++) mtk[i][j][k] = false;
+        mtk[0][0][add(grid[0][0])] = true;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                for(int k=0;k<i+j+2;k++){
+                    if(mtk[i][j][k] == false) continue;
+                    if(i+1 < n){
+                                 int ni = k + add(grid[i+1][j]);
+                          if(ni>=0) mtk[i+1][j][ni] |= mtk[i][j][k];
+                    }
+                    if(j+1<m){
+                    int nj = k + add(grid[i][j+1]);
+                    if(nj>=0) mtk[i][j+1][nj] |= mtk[i][j][k];
+                        
+                    }
+           
+                  
+                }
+            }
+        }
+        return mtk[n-1][m-1][0];
+    }
+};

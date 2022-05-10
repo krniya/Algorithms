@@ -15,4 +15,4 @@ def firstMissingPositive(nums: List[int]) -> int:
     return n
 
 
-print(firstMissingPositive([9, 2, 4, 5]))
+print(firstMissingPositive([3,4,-1,1]))

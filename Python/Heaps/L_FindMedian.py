@@ -21,3 +21,13 @@ class MedianFinder:
         if len(self.large) > len(self.small):
             return self.large[0]
         return (-1 * self.small[0] + self.large[0]) /2
+
+mf = MedianFinder()
+mf.addNum(2)
+mf.addNum(1)
+print(mf.findMedian())
+mf.addNum(4)
+mf.addNum(3)
+print(mf.findMedian())
+mf.addNum(14)
+mf.addNum(18)

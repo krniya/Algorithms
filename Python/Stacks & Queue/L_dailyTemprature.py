@@ -8,4 +8,17 @@ def dailyTemperatures(temperatures):
             stack.append(i)
         return ans
 
-print(dailyTemperatures([73,74,75,71,69,72,76,73]))
+def dailyTemperatures1(temperatures):
+        stack, out = [], []
+        for i in range(len(temperatures)-1, -1, -1):
+            while stack and stack[-1][0] <= temperatures[i]:
+                stack.pop()
+            stack.append((temperatures[i], i))
+            if len(stack) == 1:
+                out.append(0)
+            else:
+                out.append(stack[-2][1] - stack[-1][1])
+            
+        return out[::-1]
+
+print(dailyTemperatures1([73,74,75,71,69,72,76,73]))

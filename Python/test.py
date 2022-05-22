@@ -1,19 +1,12 @@
 def minimumLines(sp) -> int:
-        res,i = 0,1
-        sp.sort()
         n = len(sp)
-        if n<=1:
-            return 0
-        if n == 2:
-            return 1
-        def slope(x,y):
-            return ((y[1]-x[1]) // (y[0]-x[0]))
-
-        for i in range(1,n-1):
-            if slope(sp[i],sp[i-1]) == slope(sp[i],sp[i+1]):
-                continue
-            res += 1
-        return res + 1 
+        res = n - 1
+        sp.sort()
+        for i in range(1, n - 1):
+            a, b, c = sp[i-1], sp[i], sp[i+1]
+            if (b[0] - a[0]) * (c[1] - b[1]) == (c[0] - b[0]) * (b[1] - a[1]):
+                res -= 1
+        return res
 
         
         

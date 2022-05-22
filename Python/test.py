@@ -1,65 +1,24 @@
-class Node:
-    def __init__(self, left, right) -> None:
-        self.v = 0
-        self.lazy = 0
-        self.left = None
-        self.right = None
-        self.tl = left
-        self.tr= right
-
-    def push(self):
-        t = (self.tl + self.tr) // 2
-        if self.left or self.right:
-            self.left = Node(self.tl, t)
-            self.right = Node(t+1, self.tr)
-        if self.lazy:
-            self.left.lazy = 1
-            self.right.lazy = 1
-            self.left.v = t + self.tl + 1
-            self.right.v = self.tr - (t+1) + 1
-            self.lazy = 0
-    
-    def query(self, l,r):
-        if l>r or r<self.tl or l>self.tr:
+def minimumLines(sp) -> int:
+        res,i = 0,1
+        sp.sort()
+        n = len(sp)
+        if n<=1:
             return 0
-        if l <= self.tl and r>= self.tr:
-            self.v = self.tr -self.tl  + 1
-            self.lazy = 1
-            return
-        self.push()
-        a = 0
-        if self.right:
-            a += self.right.query(l,r)
-        if self.left:
-            a += self.left.query(l,r)
-        return a
+        if n == 2:
+            return 1
+        def slope(x,y):
+            return ((y[1]-x[1]) // (y[0]-x[0]))
 
-    def update(self, l, r):
-        if l>r or r < self.tl or l > self.tr:
-            return
-        if l<= self.tl and r >= self.tr:
-            self.v = self.tr - self.tl + 1
-            self.lazy = 1
-            return
-        self.push()
-        if self.left:
-            self.left.update(l,r)
-        if self.right:
-            self.right.update(l,r)
-        self.v = 0
-        if self.left:
-            self.v += self.left.v
-        if self.right:
-            self.v += self.right.v
+        for i in range(1,n-1):
+            if slope(sp[i],sp[i-1]) == slope(sp[i],sp[i+1]):
+                continue
+            res += 1
+        return res + 1 
+
+        
+        
 
 
-class CountIntervals:
-    
-    def __init__(self):
-        self.root = Node(1,1000000000)
-
-    def add(self, left: int, right: int) -> None:
-        self.root.update(self, left, right)
-
-    def count(self) -> int:
-        return self.root.query(1,1000000000)
+print(minimumLines([[72,98],[62,27],[32,7],[71,4],[25,19],[91,30],[52,73],[10,9],[99,71],
+[47,22],[19,30],[80,63],[18,15],[48,17],[77,16],[46,27],[66,87],[55,84],[65,38],[30,9],[50,42],
+[100,60],[75,73],[98,53],[22,80],[41,61],[37,47],[95,8],[51,81],[78,79],[57,95]]))

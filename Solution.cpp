@@ -1,80 +1,68 @@
-class interNode{
-    public:
-    interNode* left;
-    interNode* right;
-    int tl,tr,v,ly;
-    interNode(int l, int r){
-        v = 0;
-        ly = 0;
-        left = NULL;
-        right = NULL;
-        tl = l;
-        tr = r;
-    }
-    
-    void add(){
-        int t = (this->tl + this->tr)/2;
-        if(this->left == NULL || this->right == NULL){
-            this->left = new interNode(this->tl,t);
-            this->right = new interNode(t+1,this->tr);
-        }
-        
-        if(this->ly){
-            this->left->ly = 1;
-            this->right->ly = 1;
-            this->left->v = t - this->tl + 1;
-            this->right->v = this->tr - (t+1) + 1;
-            this->ly = 0;
-        }
-    }
-    
-    int search(int l, int r){
-        if(l>r || r<this->tl || l>this->tr) return 0;
-        if( l<= this->tl && r>= this->tr) return this->v;
-        this->add();
-        int res = 0;
-        if(this->left != NULL) res += this->left->search(l,r);
-        if(this->right != NULL) res += this->right->search(l,r);
-        return res;
-    }
-    
-    void insert(int l, int r){
-        if(l>r || r<this->tl || l>this->tr) return;
-        if( l<= this->tl && r>= this->tr){
-            this->v = this->tr-this->tl+1;
-            this->ly = 1;
-            return;
-        }
-        this->add();
-        if(this->left != NULL)
-        this->left->insert(l,r);
-        if(this->right != NULL)
-        this->right->insert(l,r);
-        this->v = 0;
-        if(this->left != NULL) this->v += this->left->v;
-        if(this->right != NULL) this->v += this->right->v;
-    }
-};
+const int lim = 1e5 + 5;
+long long pSum[lim], sSum[lim];
+int arr[lim], pMin[lim], sMin[lim];
+const int mod = 1e9 + 7;
 
-class CountIntervals {
+
+long long helper(int left, int right){
+    if(left == right) return ((long long)arr[left]*arr[left])%mod;
+    int mid = (left + right)/2;
+    for (int i = mid; i >= left; i--)
+    {
+        sMin[i] = arr[i];
+        sSum[i] = arr[i];
+        if (i + 1 <= mid)
+        {
+            sMin[i] = min(sMin[i + 1], arr[i]);
+            sSum[i] = (sSum[i + 1] + arr[i])%mod;
+        }
+    }
+    for (int i = mid + 1; i <= right; i++)
+    {
+        pMin[i] = arr[i];
+        pSum[i] = arr[i];
+        if (i - 1 > mid)
+        {
+            pMin[i] = min(pMin[i - 1], arr[i]);
+            pSum[i] = (pSum[i - 1] + arr[i])%mod;
+        }
+    }
+    long long ans = 0, sLeft = 0, sRight = 0;
+    for (int i = mid, j2 = mid; i >= left; i--)
+    {
+        sLeft = sSum[i];
+        while (j2 + 1 <= right && pMin[j2 + 1] > sMin[i]){
+            j2++;
+            sRight = (sRight + pSum[j2])%mod;
+        }
+        long long s = sRight;
+        s = (s + ((j2-mid)*sLeft)%mod)%mod;
+        s = (s*sMin[i])%mod;
+        ans = (ans + s)%mod;
+    }
+    sLeft = 0, sRight = 0;
+    for(int i=mid+1,j2=mid+1;i<=right;i++){
+        sRight = pSum[i];
+        while(j2-1>=left && sMin[j2-1] >= pMin[i]){
+            j2--;
+            sLeft = (sLeft + sSum[j2]);
+        }
+        long long s = sLeft;
+        s = (s + ((mid+1-j2)*sRight)%mod)%mod;
+        s = (s*pMin[i])%mod;
+        ans = (ans + s)%mod;
+    }
+    ans = (ans + helper(left,mid))%mod;
+    ans = (ans + helper(mid+1,right))%mod;
+    return ans;
+}
+
+class Solution {
 public:
-    interNode* node;
-    CountIntervals() {
-        node = new interNode(1,1000000000);
-    }
-    
-    void add(int left, int right) {
-        node->insert(left,right);
-    }
-    
-    int count() {
-        return node->search(1,1000000000);
+    int totalStrength(vector<int>& s) {
+        int n = (int)s.size();
+        for(int i=0;i<n;i++) arr[i] = s[i];
+        long long ans = helper(0,n-1);
+        return (int)ans;
     }
 };
-
-/**
- * Your CountIntervals object will be instantiated and called as such:
- * CountIntervals* obj = new CountIntervals();
- * obj->add(left,right);
- * int param_2 = obj->count();
- */

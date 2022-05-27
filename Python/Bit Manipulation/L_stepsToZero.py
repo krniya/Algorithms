@@ -1,7 +1,7 @@
 def numberOfSteps(num: int) -> int:
         res = 0
-        while num:
-            if num % 2 ==  0:
+        while num != 0:
+            if num % 2==0:
                 num>>=1
                 res+=1
             else:

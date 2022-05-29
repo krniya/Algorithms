@@ -1,29 +1,19 @@
 class Solution {
 public:
-    // splitong the words
-    int divider(string &str){
-        int noOfWord = 1;
-        for(char ch: str){
-            noOfWord += ch == ' ';
+    int rearrangeCharacters(string s, string target) {
+        int a = 26;
+        vector<int> first(a), last(a);
+        for(char c: s) {
+            first[c-'a']++;
         }
-        return noOfWord;
-    }
-    
-    string largestWordCount(vector<string>& messages, vector<string>& senders) {
-        map<string,int> hm;
-        int n;
-        n = messages.size();
-        for(int i=0;i<n;i++){
-            hm[senders[i]] += divider(messages[i]);
+        for(char c: target) {
+            last[c-'a']++;
         }
-        string res;
-        int count = 0;
-        for(auto [key, val]: hm){
-            if(val >= count){
-                count = val;
-                res = max(res, key);
-            }
-        }
+        int res = (int)1e9;
+        for(int i=0;i<a;i++){
+            if(last[i] == 0) continue;
+            res = min(res, first[i]/last[i]);
+        } 
         return res;
     }
 };

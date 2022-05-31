@@ -1,20 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-// int main() {
-//     string str, revStr;
-//     cin >> str;
-//     for (int i = str.size() - 1; i >=0; i--) {
-//         revStr.push_back(str[i]);
-//     }
-//     if (str == revStr) {
-//         cout<<"Yes";
-//     } else {
-//         cout<<"No";
-//     }
-// }
-
 bool palCheck1(string str) {
     string revStr;
     for (int i = str.size() - 1; i >=0; i--) {

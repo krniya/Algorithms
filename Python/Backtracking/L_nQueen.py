@@ -21,3 +21,5 @@ def solveNQueens(n):
                 board[r][c] = "."
         backtrack(0)
         return res
+
+print(solveNQueens(4))

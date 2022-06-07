@@ -21,7 +21,7 @@ vector<int> NGE(vector<int> nums) {
 int main() {
     vector<int> nums = {4,5,2,25,7,8};
     vector<int> nge = NGE(nums);
-    for(int i=0;i<nums.size();++i) {
+    for(int i=0;i<nge.size();++i) {
         cout<<nge[i];
     }
 }

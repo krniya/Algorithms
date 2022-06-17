@@ -16,7 +16,7 @@ def decode(str):
         i = j + 1 + length
     return res
 
-s = ["hi", "hello", "elephant"]
+s = ["hiie", "hello", "elephant"]
 a = encode(s)
 print(a)
 print(decode(a))

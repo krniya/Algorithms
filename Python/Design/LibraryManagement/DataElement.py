@@ -1,31 +1,33 @@
 from enum import Enum
-from re import L
-
-
+from abc import ABC
 class BookFormat(Enum):
-    PaperBack, HardCover, AudioBook, EBook = 1,2,3,4
+    PAPERBACK, HARDCOVER, AUDIOBOOK, EBOOK = 1,2,3,4
 
 class BookStatus(Enum):
-    Available, Reserved, NotAvailable = 1,2,3
+    AVAILABLE, RESERVED, NOTAVAILABLE = 1,2,3
 
 class ReservationStatus(Enum):
-    Waiting, Pending, Completed, Cancel = 1,2,3,4
+    WAITING, PENDING, COMPLETED, CANCEL = 1,2,3,4
 
 class AccountStatus(Enum):
-    Active, Closed, BlackListed = 1,2,3
+    ACTIVE, CLOSED, BLACKLISTED = 1,2,3
 
 class Address:
     def __init__(self, street, landmark, city, state, pin) -> None:
-        self.street = street
-        self.landmark = landmark
-        self.city = city
-        self.state = state
-        self.pin = pin
+        self.__street = street
+        self.__landmark = landmark
+        self.__city = city
+        self.__state = state
+        self.__pin = pin
 
-class Person:
+class Person(ABC):
     def __init__(self, name, address, email, phone) -> None:
-        self.name = name
-        self.address = address
-        self.email = email
-        self.phone = phone
+        self.__name = name
+        self.__address = address
+        self.__email = email
+        self.__phone = phone
         
+class Constants:
+    MAX_BOOK_PER_USER = 5
+    MAX_LENDING_DAY = 10
+

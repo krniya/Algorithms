@@ -1,1 +1,28 @@
-<mxfile host="app.diagrams.net" modified="2022-06-19T18:45:56.769Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="t5xVZxoMFyXiJ2uEziMI" version="20.0.1" type="device"><diagram id="iAOFGo1Q_JiRAMQJq3eF" name="Page-1">zZddc6IwFIZ/DZc7I6C2vQRq7UW709Gd7d7tHMlZyBgSJgl+7K/fKAFlQKZ1teOVh/c9+XxOCDp+lG2mEvL0VRBkjjcgG8d/dDzP9QYP5menbEvlbuiWQiIpsUkHYU7/ohUHVi0oQdVI1EIwTfOmGAvOMdYNDaQU62baH8Gao+aQYEuYx8Da6jslOi3Ve+/uoD8jTdJqZHdsF5xBlWxXolIgYn0k+RPHj6QQuoyyTYRst3nVvpTtnk649cQkcv2RBgEfy/noV7yYzaZK/pwWSf77m+1lBaywC3YizwnCCS+yXRSGjjdmpv9wIU2U7KJaqYRQiOWTkGbFlWVmsWiltzuolWeQJBIrlG3rDXKUIcTLtjVZmIHbclAQKsJOy5LQ2wpvqjNmIrf2zBw0bk5usVuDMxWPIkMttybFNqhQ21of2sf1oXDcqq7T46LxrQi2WJO65wNPE1ikn8DrXQrvXIMu1Ll4gxVQBguz6S1rhgrlCknb+S70UburcnNHtwbOvwS4cm9BU8Gb/Npt+om+A9WUJx2HEznpNCKR5Qx1B/AIeLy7I776aN7fGuLhJRAHcSwKrv8PbxBruupCxYTqOpkhM6/jF6p0l3lljkN3eGMcRyc4PoKGH9scP86SEInqbIpKS0QTBPvt77hJGXCSgVz2pMRUb3tsZcoMe/yccuN2Wlcui9HNvcHHlyqLN5RK8HOrgkPWRwxsze0zThYgZuYe7uOeCt43ypXhjx++Dr55PHyy772jPz7+5B8=</diagram></mxfile>
+<mxfile host="65bd71144e">
+    <diagram id="iAOFGo1Q_JiRAMQJq3eF" name="Page-1">
+        <mxGraphModel dx="864" dy="557" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="An6rS5XcbRRGsrVGugp_-1" value="«Enum»&lt;br&gt;&lt;b&gt;BookFormat&lt;/b&gt;&lt;br&gt;&lt;br&gt;HardCover&lt;br&gt;PaperBack&lt;br&gt;Ebook&lt;br&gt;AudioBook&lt;br&gt;" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="40" width="110" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="An6rS5XcbRRGsrVGugp_-2" value="«Enum»&lt;br&gt;&lt;b&gt;BookStatus&lt;/b&gt;&lt;br&gt;&lt;br&gt;Available&lt;br&gt;Reserved&lt;br&gt;NotAvailable" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="40" width="110" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="An6rS5XcbRRGsrVGugp_-3" value="«Enum»&lt;br&gt;&lt;b&gt;ReservationStatus&lt;br&gt;&lt;/b&gt;&lt;br&gt;Waiting&lt;br&gt;Pending&lt;br&gt;Complete&lt;br&gt;Cancel&lt;br&gt;" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="40" width="110" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="An6rS5XcbRRGsrVGugp_-4" value="«Enum»&lt;br&gt;&lt;b&gt;AccountStatus&lt;br&gt;&lt;/b&gt;&lt;br&gt;Active&lt;br&gt;Closed&lt;br&gt;BlackListed&lt;br&gt;" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="414" y="40" width="110" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="An6rS5XcbRRGsrVGugp_-5" value="«DataType»&lt;br&gt;&lt;b&gt;Address&lt;br&gt;&lt;/b&gt;&lt;br&gt;street: str&lt;br&gt;landmark: str&lt;br&gt;city: str&lt;br&gt;state: str&lt;br&gt;pin:str&lt;br&gt;" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="40" width="110" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="An6rS5XcbRRGsrVGugp_-6" value="«DataType»&lt;br&gt;&lt;b&gt;Person&lt;br&gt;&lt;/b&gt;&lt;br&gt;name: str&lt;br&gt;address: Address&lt;br&gt;email: str&lt;br&gt;phone: str&lt;br&gt;" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="690" y="40" width="110" height="130" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

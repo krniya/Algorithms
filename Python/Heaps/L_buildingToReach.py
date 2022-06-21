@@ -12,3 +12,6 @@ def furthestBuilding(building, bricks, ladders):
             if bricks < 0:
                 return i
         return len(building) - 1
+
+
+print(furthestBuilding([4,2,7,6,9,14,12],5,1))

@@ -6,7 +6,7 @@ def minimumLengthEncoding(words) -> int:
         return sum(len(w) + 1 for w in s)
 
 
-def minimumLengthEncoding(words) -> int:
+def minimumLengthEncoding1(words) -> int:
         trie, ans = {}, 0
         for word in words:
             node = trie
@@ -17,3 +17,5 @@ def minimumLengthEncoding(words) -> int:
                 node['$'] = len(word) + 1
                 ans += node['$']
         return ans
+
+print(minimumLengthEncoding1(["time", "me", "bell"]))

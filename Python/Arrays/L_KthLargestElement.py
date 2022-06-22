@@ -1,3 +1,4 @@
+import heapq
 import random
 
 
@@ -28,5 +29,17 @@ def findKthLargest(nums, k: int) -> int:
             return findKthLargest(right, k - L - M)
         else:
             return mid[0]
+
+
+def findKthLargest(nums, k: int) -> int:
+        heap = []
+        size = 0
+        for num in nums:
+            heapq.heappush(heap, num)
+            size += 1
+            if size > k:
+                heapq.heappop(heap)
+                size -= 1
+        return heapq.heappop(heap)
 
 print(findKthLargest([3,2,5,1,4,7,6], 3))

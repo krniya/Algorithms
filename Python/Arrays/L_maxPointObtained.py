@@ -5,3 +5,5 @@ def maxScore(cardPoints, k: int) -> int:
             s += cardPoints[-i] - cardPoints[k-i]
             res = max(res, s)
         return res
+
+print(maxScore([1,2,3,4,5,6,1], 3))

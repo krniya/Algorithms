@@ -1,3 +1,6 @@
+import heapq
+
+
 def topKFrequent(nums, k):
     count = {}
     freq = [[] for i in range(len(nums)+1)]
@@ -11,3 +14,17 @@ def topKFrequent(nums, k):
             res.append(n)
             if len(res) ==k:
                 return res
+
+
+def topKFrequent(nums, k):
+        count = {}
+        hp = []
+        res = []
+        for n in nums:
+            count[n] = 1 + count.get(n,0)
+        for n,c in count.items():
+            heapq.heappush(hp,(-c,n))
+        while k:
+            res.append(heapq.heappop(hp)[1])
+            k-=1
+        return res

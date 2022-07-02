@@ -8,3 +8,5 @@ def nthUglyNumber(n: int) -> int:
             S.add(m)
             for i in [2,3,5]: heapq.heappush(N,i*m)
         return m
+
+print(nthUglyNumber(10))

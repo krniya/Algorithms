@@ -1,3 +1,4 @@
+from collections import defaultdict
 import heapq
 
 
@@ -28,3 +29,16 @@ def topKFrequent(nums, k):
             res.append(heapq.heappop(hp)[1])
             k-=1
         return res
+
+def topKFrequent(nums, k: int):
+        counter = {}
+        freq = defaultdict(list)
+        res = []
+        for n in nums:
+            counter[n] = counter.get(n,0) + 1
+        for n,c in counter.items():
+            freq[c].append(n)
+        for i in range(len(nums),0,-1):
+            if i in freq:
+                res += freq[i]
+        return res[:k]

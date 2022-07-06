@@ -56,12 +56,31 @@ class Member(Account):
         due_date = book_lending.get_due_date() 
         today = datetime.date.today, # check if the book has been returned within the due date if today > due_date:
         diff = today - due_date diff_days = diff.days 
-        Fine.collect_fine(self.get_member_id(), diff_days),
-    def return_book_item(self, book_item):
+        Fine.collect_fine(self.get_member_id(), diff_days)
 
+    def return_book_item(self, book_item):
         self.check_for_fine(book_item.get_barcode()) 
         book_reservation = BookReservation.fetch_reservation_details(book_item.get_barcode())
         if book_reservation != None:
-            book_reservation.send_book_available_notification() book_item.update_book_item_status(BookStatus.AVAILABLE),
+            book_reservation.send_book_available_notification() book_item.update_book_item_status(BookStatus.AVAILABLE)
+
+    def renew_book_item(self, book_item):
+        self.check_for_fine(book_item.get_barcode())
+    book_reservation = BookReservation.fetch_reservation_details(
+      book_item.get_barcode())
+    # check if self book item has a pending reservation from another member
+    if book_reservation != None and book_reservation.get_member_id() != self.get_member_id():
+      print("self book is reserved by another member")
+      self.decrement_total_books_checkedout()
+      book_item.update_book_item_state(BookStatus.RESERVED)
+      book_reservation.send_book_available_notification()
+      return False
+    elif book_reservation != None:
+      # book item has a pending reservation from self member
+      book_reservation.update_status(ReservationStatus.COMPLETED)
+    BookLending.lend_book(book_item.get_bar_code(), self.get_member_id())
+    book_item.update_due_date(
+      datetime.datetime.now().AddDays(Constants.MAX_LENDING_DAYS))
+    return True
             
 

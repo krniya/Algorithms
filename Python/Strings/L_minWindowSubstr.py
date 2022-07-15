@@ -1,4 +1,4 @@
-def minWindow(s: str, t: str) -> str:
+def minWindow1(s: str, t: str) -> str:
         if t == "":
             return ""
         countT, window = {}, {}
@@ -23,5 +23,27 @@ def minWindow(s: str, t: str) -> str:
         l, r = res
         return s[l:r+1] if resLen != float("inf") else ""
 
-print(minWindow("avbdcbae", "abc"))
+def minWindow( s: str, t: str) -> str:
+        if t == "":
+            return t
+        word, target = {}, {}
+        left, size, res = 0, float("inf"), [-1,-1]
+        for ch in t:
+            target[ch] = target.get(ch,0) + 1
+        need, have = len(target), 0
+        for right, ch in enumerate(s):
+            word[ch] = word.get(ch,0) + 1
+            if ch in target and word[ch] == target[ch]:
+                have += 1
+            while have == need:
+                if (right - left + 1) < size:
+                    size = right - left + 1
+                    res = [left, right]
+                word[s[left]] -= 1
+                if s[left] in target and target[s[left]] > word[s[left]]:
+                    have -= 1
+                left += 1
+        return s[res[0]:res[1]+1]
+
+print(minWindow("aa", "aa"))
             

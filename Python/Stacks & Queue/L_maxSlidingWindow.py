@@ -16,3 +16,5 @@ def maxSlidingWindow( nums, k):
                 l+=1
             r+=1
         return op
+
+print(maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))

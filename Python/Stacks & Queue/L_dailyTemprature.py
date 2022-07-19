@@ -21,4 +21,14 @@ def dailyTemperatures1(temperatures):
             
         return out[::-1]
 
+def dailyTemperatures(temperatures):
+        res = [0] * len(temperatures)
+        stack = []
+        for idx, temp in enumerate(temperatures):
+            while stack and temp > stack[-1][0]:
+                _ , prevIdx = stack.pop()
+                res[prevIdx] = idx - prevIdx
+            stack.append([temp, idx])
+        return res
+
 print(dailyTemperatures1([73,74,75,71,69,72,76,73]))

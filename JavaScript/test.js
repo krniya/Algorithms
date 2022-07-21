@@ -1,36 +1,41 @@
-function mapForEach(arr, fn) {
-    var newArr = [];
-    for (var i = 0; i < arr.length; i++) {
-        newArr.push(fn(arr[i]));
-    }
+const xlsx = require("xlsx");
+const filepath = "./data.xlsx";
 
-    return newArr;
-}
-
-var arr1 = [1, 2, 3];
-console.log(arr1);
-
-var arr2 = mapForEach(arr1, function (item) {
-    return item * 2;
-});
-console.log(arr2);
-
-var arr3 = mapForEach(arr1, function (item) {
-    return item > 2;
-});
-console.log(arr3);
-
-var checkPastLimit = function (limiter, item) {
-    return item > limiter;
-};
-var arr4 = mapForEach(arr1, checkPastLimit.bind(this, 1));
-console.log(arr4);
-
-var checkPastLimitSimplified = function (limiter) {
-    return function (limiter, item) {
-        return item > limiter;
-    }.bind(this, limiter);
+const xlsxToJson = (filePath, sheetName) => {
+    const workbook = xlsx.readFile(filePath);
+    const sheet = workbook.Sheets[sheetName];
+    return xlsx.utils.sheet_to_json(sheet);
 };
 
-var arr5 = mapForEach(arr1, checkPastLimitSimplified(1));
-console.log(arr5);
+const jsonSheet = xlsxToJson("./data.xlsx", "Sheet1");
+console.log(jsonSheet);
+
+// function readFile(f) {
+//     var name = f.name;
+//     const reader = new FileReader();
+//     reader.onload = (evt) => {
+//         const bstr = evt.target.result;
+//         const wb = XLSX.read(bstr, { type: "binary" });
+//         const wsname = wb.SheetNames[0];
+//         const ws = wb.Sheets[wsname];
+//         const data = XLSX.utils.sheet_to_csv(ws, { header: 1 });
+//         console.log("Data>>>" + data);
+//         console.log(this.convertToJson(data));
+//     };
+//     reader.readAsBinaryString(f);
+// }
+
+// function convertToJson(csv) {
+//     var lines = csv.split("\n");
+//     var result = [];
+//     var headers = lines[0].split(",");
+//     for (var i = 1; i < lines.length; i++) {
+//         var obj = {};
+//         var currentline = lines[i].split(",");
+//         for (var j = 0; j < headers.length; j++) {
+//             obj[headers[j]] = currentline[j];
+//         }
+//         result.push(obj);
+//     }
+//     return JSON.stringify(result);
+// }

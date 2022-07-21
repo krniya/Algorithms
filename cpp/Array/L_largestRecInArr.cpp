@@ -24,6 +24,7 @@ int largestRectangleArea(vector<int>& heights) {
         }
         return maxRec;
     }
+    
 int main() {
     vector<int> num = {12,45,65,43,23,54,76};
     int n = largestRectangleArea(num);

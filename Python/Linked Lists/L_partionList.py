@@ -1,4 +1,9 @@
-def partition(head, x: int) -> Optional[ListNode]:
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def partition(head, x: int):
         left_head = ListNode(None)  # head of the list with nodes values < x
         right_head = ListNode(None)  # head of the list with nodes values >= x
         left = left_head  # attach here nodes with values < x

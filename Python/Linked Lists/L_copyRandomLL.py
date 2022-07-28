@@ -1,8 +1,13 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 def copyRandomList(head):
         nodeToCopy = { None: None}
         curr = head
         while curr:
-            copy = Node(curr.val)
+            copy = ListNode(curr.val)
             nodeToCopy[curr] = copy
             curr = curr.next
         curr = head

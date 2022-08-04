@@ -1,6 +1,6 @@
 import heapq
 
-class KthLargest(object):
+class KthLargest():
     
     
     def __init__(self, k, nums):
@@ -17,3 +17,11 @@ class KthLargest(object):
         elif val > self.pool[0]:
             heapq.heapreplace(self.pool, val)
         return self.pool[0]
+
+
+Kthlargest = KthLargest(3, [4, 5, 8, 2])
+print(Kthlargest.add(3))
+print(Kthlargest.add(5))
+print(Kthlargest.add(10))
+print(Kthlargest.add(9))
+print(Kthlargest.add(4))

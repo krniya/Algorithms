@@ -22,6 +22,7 @@ vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
             //combinationSum1 : no this line to filter the duplicate cases 
             while (i < nums.size() && nums[i] == nums[i+1]) i++;
         }
+    }
 
 int main() {
 

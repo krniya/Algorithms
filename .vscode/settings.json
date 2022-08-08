@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "functional": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "l_subset2,cpp": "cpp"
     }
 }

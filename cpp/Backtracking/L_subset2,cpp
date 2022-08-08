@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> res;
+        vector<int> curr;
+        backtrack(0,curr,res,nums);
+        return res;
+    }
+    void backtrack(int i, vector<int>& curr, vector<vector<int>>& res, vector<int>& nums) {
+        if(i==nums.size()) {
+            res.push_back(curr);
+            return;
+        }
+        curr.push_back(nums[i]);
+        backtrack(i+1, curr, res, nums);
+        curr.pop_back();
+        while (i+1 < nums.size() and nums[i] == nums[i+1]) i++;
+        backtrack(i+1, curr, res, nums);
+    }
+
+int main() {
+
+}

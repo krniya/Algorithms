@@ -1,0 +1,142 @@
+Array
+1170
+String
+554
+Hash Table
+410
+Dynamic Programming
+388
+Math
+368
+Sorting
+261
+Depth-First Search
+254
+Greedy
+252
+Database
+212
+Breadth-First Search
+199
+Tree
+193
+Binary Search
+190
+Matrix
+172
+Binary Tree
+159
+Two Pointers
+151
+Bit Manipulation
+140
+Stack
+131
+Heap (Priority Queue)
+116
+Design
+116
+Graph
+105
+Simulation
+101
+Prefix Sum
+92
+Backtracking
+91
+Counting
+86
+Sliding Window
+73
+Linked List
+69
+Union Find
+64
+Ordered Set
+47
+Monotonic Stack
+47
+Recursion
+44
+Trie
+41
+Binary Search Tree
+40
+Divide and Conquer
+40
+Enumeration
+39
+Bitmask
+37
+Queue
+32
+Memoization
+32
+Geometry
+30
+Topological Sort
+29
+Segment Tree
+27
+Game Theory
+24
+Hash Function
+24
+Binary Indexed Tree
+21
+Interactive
+18
+String Matching
+17
+Rolling Hash
+17
+Shortest Path
+16
+Number Theory
+16
+Data Stream
+16
+Combinatorics
+15
+Randomized
+12
+Monotonic Queue
+9
+Iterator
+9
+Merge Sort
+9
+Concurrency
+9
+Doubly-Linked List
+8
+Brainteaser
+8
+Probability and Statistics
+7
+Quickselect
+7
+Bucket Sort
+6
+Suffix Array
+6
+Minimum Spanning Tree
+5
+Counting Sort
+5
+Shell
+4
+Line Sweep
+4
+Reservoir Sampling
+4
+Eulerian Circuit
+3
+Radix Sort
+3
+Strongly Connected Component
+2
+Rejection Sampling
+2
+Biconnected Component
+1

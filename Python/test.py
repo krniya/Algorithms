@@ -1,8 +1,8 @@
-def isPal(s, i, j):
-    a = s[i:j+1]
-    b = s[j:i+1:-1]
-    return s[i:j+1] == s[i:j-1:-1]
+
+data = open("C:\\Users\\NiYa\\Documents\\Algorithms\\Python\\data.txt", 'w+')
+file = open("C:\\Users\\NiYa\\Documents\\Algorithms\\Python\\test.txt", 'r')
+for each in file:
+    if each[0].isalpha():
+        data.write(each)
 
 
-s = "dfsabafdg"
-print(isPal(s,3,5))

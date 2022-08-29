@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-nt rob(vector<int>& nums) {
+int rob(vector<int>& nums) {
         int prev = 0;
         int curr = 0;
         int next = 0;

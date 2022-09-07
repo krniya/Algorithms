@@ -10,3 +10,15 @@ def rightSideView(root):
         
         traverse(root, 0)
         return res
+
+
+def rightSideView(root):
+        res = []
+        def dfs(root, curr):
+            if not root: return
+            if curr == len(res):
+                res.append(root.val)
+            dfs(root.right, curr + 1)
+            dfs(root.left, curr + 1)
+        dfs(root, 0)
+        return res

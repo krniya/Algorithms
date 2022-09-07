@@ -25,3 +25,15 @@ class Solution:
                 lvl.append(curr.val)
             res.append(lvl)
         return res
+
+
+    def levelOrder(self, root):
+        ans = []
+        def recurse(node, level):
+            if not node: return
+            if level > len(ans): ans.append([])
+            ans[level-1].append(node.val)
+            recurse(node.left, level+1)
+            recurse(node.right, level+1)
+        recurse(root, 1)
+        return ans

@@ -1,3 +1,6 @@
+import heapq
+
+
 class Solution:
     def lastStoneWeight(self, stones):
         stones.sort()
@@ -12,3 +15,14 @@ class Solution:
                         stones.insert(i,s1-s2)
                         break
         return 0
+
+def lastStoneWeight(stones) -> int:
+        stones = [ -n for n in stones ]
+        heapq.heapify(stones)
+        while len(stones) > 1:
+            first = heapq.heappop(stones)
+            second = heapq.heappop(stones)
+            if first < second:
+                heapq.heappush(stones, first - second)
+        stones.append(0)
+        return abs(stones[0])

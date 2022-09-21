@@ -9,3 +9,5 @@ def findLength(nums1, nums2) -> int:
             else:
                 strmax = strmax[1:]
         return ans
+
+print(findLength([1,2,3,2,1],[3,2,1,4,7]))

@@ -1,5 +1,8 @@
-function nums(a,b,c, ...d) { // paramas
-	console.log(a,b,c,d);
+let a = {
+    name: { n: "Nitish" },
+};
+
+for (let i = 0; i < 5; i++) {
+    a["name" + i] = i;
 }
-var n = [1,2,3,4,5,6]
-nums(...n)
+console.log(a);

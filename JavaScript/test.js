@@ -1,8 +1,9 @@
-let a = {
-    name: { n: "Nitish" },
-};
+var time = 1000;
+var count = 1;
 
-for (let i = 0; i < 5; i++) {
-    a["name" + i] = i;
+while (count < 15) {
+    setTimeout(function () {
+        console.log(count);
+    }, time * count);
+    count++;
 }
-console.log(a);

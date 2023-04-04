@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-nt numRescueBoats(vector<int>& people, int limit) {
+int numRescueBoats(vector<int>& people, int limit) {
         sort(people.begin(),people.end());
         
         int i = 0, j = people.size() - 1,cnt = 0;

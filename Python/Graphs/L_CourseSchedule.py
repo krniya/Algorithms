@@ -1,3 +1,6 @@
+from collections import deque
+
+
 def courseSchedule(numCourse, prerequisites):
     crsMap = { i:[] for i in range(numCourse)}
     for crs, pre in prerequisites:
@@ -29,6 +32,33 @@ def courseSchedule2(n, prerequisites):
                 if degree[j] == 0:
                     bfs.append(j)
         return len(bfs) == n
+    
+def courseSchedule2(n, prerequisites):
+        adj = [[] for _ in range(n)]
+        indegree = [0] * n
+        ans = []
+
+        for pair in prerequisites:
+            course = pair[0]
+            prerequisite = pair[1]
+            adj[prerequisite].append(course)
+            indegree[course] += 1
+
+        queue = deque()
+        for i in range(n):
+            if indegree[i] == 0:
+                queue.append(i)
+
+        while queue:
+            current = queue.popleft()
+            ans.append(current)
+
+            for next_course in adj[current]:
+                indegree[next_course] -= 1
+                if indegree[next_course] == 0:
+                    queue.append(next_course)
+
+        return len(ans) == n
 
 
 print(courseSchedule2(3,[[0,1],[0,2],[1,2]]))

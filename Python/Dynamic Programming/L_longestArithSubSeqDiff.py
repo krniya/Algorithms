@@ -1,7 +1,7 @@
 from typing import List
 
 
-def longestSubsequence(arr: List[int], difference: int) -> int:
+def longestSubsequence1(arr: List[int], difference: int) -> int:
         n = len(arr)
         dp = [1] * n
         for i in range(n-2, -1, -1):
@@ -23,4 +23,4 @@ def longestSubsequence(arr: List[int], difference: int) -> int:
             ans = max(ans, dp[num])
         return ans
     
-print(longestSubsequence([9,-9,-12,-12,8,8], 0))
+print(longestSubsequence([1,5,7,8,5,3,4,2,1], 2))

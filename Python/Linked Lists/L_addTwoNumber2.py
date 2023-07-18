@@ -9,10 +9,10 @@ def addTwoNumbers(l1, l2):
             listOneStack.append(l1.val)
             l1 = l1.next
         while l2:
-            listOneStack.append(l2.val)
+            listTwoStack.append(l2.val)
             l2 = l2.next
         carry, prevLinkedList = 0, None
-        while listOneStack or listTwoStack:
+        while listOneStack or listTwoStack or carry:
             firstNumber = listOneStack.pop() if listOneStack else 0
             secondNumber = listTwoStack.pop() if listTwoStack else 0
             currentSum = firstNumber + secondNumber

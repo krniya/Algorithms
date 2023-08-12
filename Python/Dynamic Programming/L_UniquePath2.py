@@ -1,3 +1,6 @@
+from typing import List
+
+
 def uniquePathsWithObstacles(og) -> int:
         if og[-1][-1] or og[0][0]:
             return 0
@@ -15,3 +18,22 @@ def uniquePathsWithObstacles(og) -> int:
                 else:
                     og[i][j] = 0
         return og[m-1][n-1]
+    
+    
+
+
+def uniquePathsWithObstacles1(obstacle_grid: List[List[int]]) -> int:
+        ROW, COL = len(obstacle_grid), len(obstacle_grid[0])
+        cache = {}
+        def find_path(row, col):
+            if (row, col) in cache:
+                return cache[(row, col)]
+            if row == ROW or col == COL:
+                return 0
+            if obstacle_grid[row][col] == 1:
+                return 0
+            if row == ROW - 1 and col == COL - 1:
+                return 1
+            cache[(row, col)] = find_path(row + 1, col) + find_path(row, col + 1)
+            return cache[(row, col)]
+        return find_path(0,0)

@@ -10,3 +10,17 @@ def tree2str(root) -> str:
             res.append(")")
         inOrd(root)
         return "".join(res)[1:-1]
+
+
+def tree2str(root) -> str:
+    def dfs(node):
+        if not node.left and not node.right:
+            return str(node.val)
+        curr = str(node.val)
+        if node.left:
+            curr += '('+ dfs(node.left) +')'
+        if node.right:
+            curr += '()' if not node.left else ""
+            curr += '('+ dfs(node.right) +')'
+        return curr
+    return dfs(root)

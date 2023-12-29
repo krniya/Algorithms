@@ -39,3 +39,28 @@ def minDifficulty(jobDifficulty, d: int) -> int:
         # e.g. Example 2
         # otherwise, we start working on 0-th job at day 1
         return -1 if n < d else dp(0, 1)
+    
+    
+def minDifficulty(jobDifficulty, d):
+        if len(jobDifficulty) < d:
+            return -1
+        total_sum = sum(jobDifficulty)
+        if total_sum == 0:
+            return 0
+        return self.helper(jobDifficulty, d, 0)
+
+def helper(jd, daysLeft, idx):
+    length = len(jd)
+    if daysLeft == 1:
+        return max(jd[idx:])
+    
+    max_difficulty = jd[idx]
+    daysLeft -= 1
+    stop = length - idx - daysLeft + 1
+
+    result = float('inf')
+    for i in range(1, stop):
+        max_difficulty = max(max_difficulty, jd[idx + i - 1])
+        other = self.helper(jd, daysLeft, idx + i)
+        result = min(result, other + max_difficulty)
+    return result

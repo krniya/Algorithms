@@ -5,5 +5,4 @@ def noOf1bit(n):
         c += 1
     return c
 
-res = noOf1bit(1011)
-print(res)
+print(noOf1bit(11))

@@ -1,3 +1,6 @@
+from typing import Counter, List
+
+
 def findWinners(matches):
         lost = {}
         people = set()
@@ -18,3 +21,9 @@ def findWinners(matches):
         zero.sort()
         one.sort()
         return [zero, one]
+    
+    
+    
+
+def findWinners(m: List[List[int]]) -> List[List[int]]:
+    return [sorted({w for w,_ in m}-{*(q:=Counter(l for _,l in m))}),sorted(l for l in q if q[l]==1)]

@@ -27,7 +27,7 @@ def evalRPN(tokens) -> int:
                 stack.append(divOfNum(secondNum, firstNum))
         return stack[-1]
 
-def evalRPN(tokens) -> int:
+def evalRPN2(tokens) -> int:
         stack = []
         for c in tokens:
             if c == "+":
@@ -43,5 +43,29 @@ def evalRPN(tokens) -> int:
             else:
                 stack.append(int(c))
         return stack[0]
+    
+    
+def resolves(a, b, Operator):
+    if Operator == '+':
+        return a + b
+    elif Operator == '-':
+        return a - b
+    elif Operator == '*':
+        return a * b
+    return int(a / b)
+
+def evalRPN3(tokens):
+    stack = []
+    for token in tokens:
+        if len(token) == 1 and ord(token) < 48:
+            integer2 = stack.pop()
+            integer1 = stack.pop()
+            operator = token
+            resolved_ans = resolves(integer1, integer2, operator)
+            stack.append(resolved_ans)
+        else:
+            stack.append(int(token))
+    return stack.pop()
+
         
 print(evalRPN(["10","6","9","3","+","-11","*","/","*","17","+","5","+"]))

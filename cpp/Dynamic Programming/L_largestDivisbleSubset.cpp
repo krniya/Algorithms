@@ -31,3 +31,38 @@ vector<int> largestDivisibleSubset(vector<int> &nums)
     }
     return result;
 }
+
+int n;
+vector<int> ans;
+void solve(vector<int> &nums, int i, int j, vector<int> cur)
+{
+    if (j >= n)
+    {
+        if (cur.size() > ans.size())
+            ans = cur;
+        return;
+    }
+    for (int k = j; k < n; k++)
+    {
+        if (nums[k] % nums[i] == 0)
+        {
+            cur.push_back(nums[k]);
+            solve(nums, k, k + 1, cur);
+            cur.pop_back();
+        }
+    }
+    if (cur.size() > ans.size())
+        ans = cur;
+}
+vector<int> largestDivisibleSubset(vector<int> &nums)
+{
+    n = nums.size();
+    int mx = 0;
+    sort(nums.begin(), nums.end());
+    vector<int> cur;
+    for (int i = 0; i < n; i++)
+    {
+        solve(nums, i, i + 1, {nums[i]});
+    }
+    return ans;
+}

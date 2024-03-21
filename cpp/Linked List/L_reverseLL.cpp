@@ -19,6 +19,32 @@ ListNode* reverseList(ListNode* head) {
         return prev;
     }
 
+void reverse(ListNode* &head,ListNode* &prev){
+
+        if(head==NULL ) return ;
+
+        ListNode* curr =head;
+        ListNode* forward;
+        
+        if(curr!=NULL){
+        forward=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=forward;
+    }
+
+        reverse(forward,prev);
+
+    }
+    ListNode* reverseList(ListNode* head) {
+
+        ListNode* prev =NULL;
+        
+
+        reverse(head,prev);
+        return prev;
+        
+    }
 
 int main() {
 

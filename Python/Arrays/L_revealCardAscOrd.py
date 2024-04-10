@@ -2,7 +2,7 @@ from collections import deque
 from typing import List
 
 
-def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
+def deckRevealedIncreasing(deck: List[int]) -> List[int]:
     deck.sort()
     n = len(deck)
     result = [0] * n

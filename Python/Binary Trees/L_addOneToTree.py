@@ -25,3 +25,31 @@ def addOneRow(root, v: int, d: int):
                     curr.left = TreeNode(v, curr.left, None)
                     curr.right = TreeNode(v, None, curr.right)
         return root
+    
+def add(root, val, depth, curr):
+    if not root:
+        return None
+
+    if curr == depth - 1:
+        lTemp = root.left
+        rTemp = root.right
+
+        root.left = TreeNode(val)
+        root.right = TreeNode(val)
+        root.left.left = lTemp
+        root.right.right = rTemp
+
+        return root
+
+    root.left = add(root.left, val, depth, curr + 1)
+    root.right = add(root.right, val, depth, curr + 1)
+
+    return root
+
+def addOneRow(root, val, depth):
+    if depth == 1:
+        newRoot = TreeNode(val)
+        newRoot.left = root
+        return newRoot
+
+    return add(root, val, depth, 1)

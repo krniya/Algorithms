@@ -1,7 +1,12 @@
-var a = [1, 2, 4];
+var containsDuplicate = function (nums) {
+    let visited = new Set();
+    for (let num of nums) {
+        if (visited.has(num)) {
+            return true;
+        }
+        visited.add(num);
+    }
+    return false;
+};
 
-function myf(ele) {
-    return ele < 10;
-}
-
-console.log(a.every(myf));
+console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]));

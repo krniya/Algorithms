@@ -1,20 +1,11 @@
-def numberOfBeautifulIntegers(low: int, high: int, k: int) -> int:
-    def eveod(num):
-        e = o = 0
-        while num:
-            if (num % 10) % 2:
-                o += 1
-            else:
-                e += 1
-            num //=10
-        return e == o
-    count = 0
-    while low % k:
-        low+=1
-    for n in range(low, high+1, k):
-        if eveod(n):
-            count+=1
-    return count
 
 
-print(numberOfBeautifulIntegers(1,10,1))
+def pascals_triangle(n):
+    triangle = [[1] * i for i in range(1,n+1)]
+    for i in range(2, n):
+        for j in range(1,i):
+            triangle[i][j] = triangle[i-1][j-1] + triangle[i-1][j]
+    return triangle
+
+
+print(pascals_triangle(5))

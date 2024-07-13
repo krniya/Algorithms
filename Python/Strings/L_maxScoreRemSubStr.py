@@ -27,3 +27,5 @@ def maximumGain(s: str, x: int, y: int) -> int:
         else:
             new_stack.append(char)
     return res
+
+print(maximumGain(s = "cdbcbbaaabab", x = 4, y = 5))

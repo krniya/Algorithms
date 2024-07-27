@@ -13,7 +13,7 @@ def minimumCost(source: str, target: str, original: List[str], changed: List[str
         sortest_path = {}
         heap = [(0, src)]
         while heap:
-            cst, dest = heapq.heappop(heap)
+            cst, dest = heapq.heappop(heap) 
             if dest in sortest_path:
                 continue
             sortest_path[dest] = cst

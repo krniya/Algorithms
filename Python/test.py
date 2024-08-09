@@ -1,5 +1,13 @@
-def ninja_training(points):
-    pass
+def floodFill(image, sr, sc, newColor):
+        m = len(image)
+        n = len(image[0])
+        def ff(i,j, cc):
+            image[i][j] = newColor
+            for ni,nj in [(-1,0),(0,-1),(0,1),(1,0)]:
+                if 0<=i+ni<m and 0<=j+nj<n and image[i+ni][j+nj] == cc:
+                    ff(i+ni,j+nj, cc)
+        ff(sr,sc,image[sr][sc])
+        return image
 
 
-print(ninja_training([[10,40,70],[20,50,80],[30,60,90]]))
+print(floodFill([[1, 1, 1], [1, 1, 0], [1, 0, 1]], 1, 1, 2))

@@ -1,13 +1,18 @@
-def floodFill(image, sr, sc, newColor):
-        m = len(image)
-        n = len(image[0])
-        def ff(i,j, cc):
-            image[i][j] = newColor
-            for ni,nj in [(-1,0),(0,-1),(0,1),(1,0)]:
-                if 0<=i+ni<m and 0<=j+nj<n and image[i+ni][j+nj] == cc:
-                    ff(i+ni,j+nj, cc)
-        ff(sr,sc,image[sr][sc])
-        return image
+def nearpalind(s):
+    s = list(s)
+    l,r = 0, len(s) - 1
+    while l<=r:
+        if s[l] < s[r]:
+            s[r] = s[l]
+        elif s[l] > s[r]:
+            s[l] =  s[r]
+        l+=1
+        r-=1
+    return "".join(s)
 
 
-print(floodFill([[1, 1, 1], [1, 1, 0], [1, 0, 1]], 1, 1, 2))
+print(nearpalind("123"))
+print(nearpalind("1"))
+print(nearpalind("15236"))
+print(nearpalind("957245"))
+            

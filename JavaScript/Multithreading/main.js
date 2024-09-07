@@ -1,6 +1,6 @@
 const { Worker } = require("worker_threads");
 
-const jobs = Array.from({ length: 10 }, () => 1e9);
+const jobs = Array.from({ length: 1000 }, () => 1e9);
 
 function chunkify(array, n) {
     let chunks = [];
@@ -21,11 +21,11 @@ function run(jobs, concurrentWorkers) {
             console.log(`Worker ${i} completed`);
             completedWorker++;
             if (completedWorker === concurrentWorkers) {
-                console.log(`${concurrentWorkers} workers took ${performance.now - start}`);
+                console.log(`${concurrentWorkers} workers took ${performance.now() - start}ms`);
                 process.exit();
             }
         });
     });
 }
 
-run(jobs, 2);
+run(jobs, 16);

@@ -1,31 +1,45 @@
 const { Worker } = require("worker_threads");
 
-const jobs = Array.from({ length: 1000 }, () => 1e9);
+const jobs = new Array(100).fill(1e9);
 
-function chunkify(array, n) {
-    let chunks = [];
-    for (let i = n; i > 0; i--) {
-        chunks.push(array.splice(0, Math.ceil(array.length / i)));
+const chunkify = (jobs, threads) => {
+    const chunks = [];
+    for (let i = threads; i > 0; i--) {
+        chunks.push(jobs.splice(0, Math.ceil(jobs.length / i)));
     }
     return chunks;
-}
+};
 
-function run(jobs, concurrentWorkers) {
-    const chunks = chunkify(jobs, concurrentWorkers);
+const run_job = (jobs, threads) => {
+    const chunks = chunkify(jobs, threads);
+    let currentJob = 0;
     const start = performance.now();
-    let completedWorker = 0;
-    chunks.forEach((data, i) => {
-        const worker = new Worker("./worker.js");
-        worker.postMessage(data);
+    chunks.forEach((job, i) => {
+        const worker = new Worker("./JavaScript/Multithreading/worker.js");
+        worker.postMessage(job);
+
         worker.on("message", () => {
-            console.log(`Worker ${i} completed`);
-            completedWorker++;
-            if (completedWorker === concurrentWorkers) {
-                console.log(`${concurrentWorkers} workers took ${performance.now() - start}ms`);
+            console.log(`Task ${i} completed`);
+            currentJob++;
+            if (currentJob == threads) {
+                console.log(
+                    `Above task took ${performance.now() - start}ms using ${threads} threads`
+                );
                 process.exit();
             }
         });
     });
-}
+};
 
-run(jobs, 16);
+run_job(jobs, 16);
+
+// const start = performance.now();
+
+// for (let job of jobs) {
+//     let count = 0;
+//     for (let i = 0; i < job; i++) count++;
+// }
+
+// const end = performance.now();
+
+// console.log(`Time taken by above task ${end - start} ms`);

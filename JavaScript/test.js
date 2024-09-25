@@ -1,19 +1,66 @@
-var combinationSum2 = function (candidates, target) {
-    candidates.sort((a, b) => a - b);
-    let res = [];
-    var backtrack = function (i, tar, curr) {
-        if (tar == 0) {
-            res.push(curr);
-            return;
-        }
-        for (let j = i; j < candidates.length; j++) {
-            if (j > i && candidates[j] === candidates[j - 1]) continue;
-            if (candidates[j] > tar) break;
-            backtrack(j + 1, tar - candidates[j], [...curr, candidates[j]]);
-        }
-    };
-    if (candidates) backtrack(0, target, []);
-    return res;
-};
+var procreate = require("procreate-swatch-generator");
 
-console.log(combinationSum2([10, 1, 2, 7, 6, 1, 5], 8));
+procreate(
+    [
+        "#114678",
+
+        "#256a9c",
+
+        "#4fa5b5",
+
+        "#f7f7da",
+
+        "#85bbbb",
+
+        "#fdfbbd",
+
+        "#67a19a",
+
+        "#3c7b95",
+
+        "#47865b",
+
+        "#a99a8e",
+
+        "#234f5d",
+
+        "#3d754a",
+
+        "#cacd56",
+
+        "#143a3f",
+
+        "#697570",
+
+        "#33617f",
+
+        "#426e89",
+
+        "#4b6579",
+
+        "#e4b876",
+
+        "#ffef8f",
+
+        "#0e3634",
+
+        "#1d493e",
+
+        "#356435",
+
+        "#a7a838",
+
+        "#e4ec52",
+
+        "#0b2743",
+
+        "#0b2e40",
+
+        "#1a3c37",
+
+        "#c7873e",
+
+        "#eb9b81",
+    ],
+    "Tree Land"
+).pipe(require("fs").createWriteStream("./Tree Land.swatches"));
